@@ -1,0 +1,278 @@
+/* ============================================
+   HERO COMPONENT STYLES
+   ============================================ */
+
+/* Hero Container */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-6);
+  overflow: hidden;
+}
+
+/* Hero Content Wrapper */
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  gap: var(--spacing-8);
+}
+
+/* Text Content Container */
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Hero Heading (Name) */
+.heading {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+/* Hero Subheading (Role/Title) */
+.subheading {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  color: var(--color-primary-600);
+  margin-bottom: var(--spacing-3);
+}
+
+/* Hero Tagline/Description */
+.tagline {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-muted-foreground);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* CTA Container */
+.ctaContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* Background Decorative Elements Container */
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Animation-ready gradient background */
+.gradientBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.4;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-50) 0%,
+    var(--color-secondary-50) 100%
+  );
+}
+
+/* Decorative Circle Elements */
+.decorativeCircle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.decorativeCircle:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  background: var(--color-primary-300);
+  top: 10%;
+  left: -5%;
+  animation-delay: 0s;
+}
+
+.decorativeCircle:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  background: var(--color-secondary-300);
+  bottom: 15%;
+  right: -3%;
+  animation-delay: 2s;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) {
+  .hero {
+    padding: var(--spacing-12) var(--spacing-8);
+  }
+
+  .heroContent {
+    gap: var(--spacing-10);
+  }
+
+  .textContent {
+    gap: var(--spacing-5);
+  }
+
+  .heading {
+    font-size: var(--font-size-6xl);
+  }
+
+  .subheading {
+    font-size: var(--font-size-3xl);
+  }
+
+  .tagline {
+    font-size: var(--font-size-xl);
+    max-width: 700px;
+  }
+
+  .ctaContainer {
+    gap: var(--spacing-5);
+  }
+}
+
+/* Desktop (> 1024px) */
+@media (min-width: 1024px) {
+  .hero {
+    padding: var(--spacing-16) var(--spacing-12);
+  }
+
+  .heroContent {
+    gap: var(--spacing-12);
+  }
+
+  .textContent {
+    gap: var(--spacing-6);
+  }
+
+  .heading {
+    font-size: var(--font-size-7xl);
+  }
+
+  .subheading {
+    font-size: var(--font-size-4xl);
+  }
+
+  .tagline {
+    font-size: var(--font-size-xl);
+    max-width: 800px;
+  }
+
+  .ctaContainer {
+    gap: var(--spacing-6);
+  }
+
+  .decorativeCircle:nth-child(1) {
+    width: 400px;
+    height: 400px;
+  }
+
+  .decorativeCircle:nth-child(2) {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Mobile - Stack CTAs vertically on very small screens */
+@media (max-width: 480px) {
+  .ctaContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctaContainer > * {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade in from bottom animation for content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating animation for decorative elements */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .textContent,
+  .ctaContainer {
+    animation: none;
+  }
+
+  .decorativeCircle {
+    animation: none;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-8);
+  }
+
+  .heroBackground,
+  .decorativeCircle {
+    display: none;
+  }
+}
