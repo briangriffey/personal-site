@@ -1,0 +1,313 @@
+---
+title: "Modern React Patterns: Building Scalable Applications"
+date: "2024-03-05"
+excerpt: "A deep dive into modern React patterns including hooks, component composition, and state management strategies for building maintainable applications."
+tags: ["react", "javascript", "typescript", "patterns", "frontend"]
+---
+
+# Modern React Patterns: Building Scalable Applications
+
+React has evolved significantly since its introduction. In this post, we'll explore modern patterns that help build scalable, maintainable React applications.
+
+## Component Composition
+
+One of React's greatest strengths is its composition model. Instead of complex inheritance hierarchies, we compose small, focused components.
+
+### The Container/Presenter Pattern
+
+Separate your data logic from presentation:
+
+```typescript
+// Container: Handles logic and state
+function BlogPostContainer({ slug }: { slug: string }) {
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchPost(slug)
+      .then(setPost)
+      .finally(() => setLoading(false));
+  }, [slug]);
+
+  if (loading) return <LoadingSpinner />;
+  if (!post) return <NotFound />;
+
+  return <BlogPostPresenter post={post} />;
+}
+
+// Presenter: Pure presentation
+function BlogPostPresenter({ post }: { post: Post }) {
+  return (
+    <article>
+      <h1>{post.title}</h1>
+      <time dateTime={post.date}>{formatDate(post.date)}</time>
+      <div>{post.content}</div>
+    </article>
+  );
+}
+```
+
+## Custom Hooks: Reusable Logic
+
+Custom hooks are powerful for extracting and reusing component logic:
+
+```typescript
+// Custom hook for data fetching
+function usePost(slug: string) {
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadPost() {
+      try {
+        setLoading(true);
+        const data = await fetchPost(slug);
+        if (!cancelled) {
+          setPost(data);
+          setError(null);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setError(err as Error);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadPost();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
+  return { post, loading, error };
+}
+
+// Usage
+function BlogPost({ slug }: { slug: string }) {
+  const { post, loading, error } = usePost(slug);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!post) return <div>Post not found</div>;
+
+  return <article>{/* ... */}</article>;
+}
+```
+
+## Compound Components
+
+Create flexible, expressive components:
+
+```typescript
+// Compound component pattern
+interface CardProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+function Card({ children, className }: CardProps) {
+  return <div className={className}>{children}</div>;
+}
+
+Card.Header = function CardHeader({ children }: { children: React.ReactNode }) {
+  return <header>{children}</header>;
+};
+
+Card.Body = function CardBody({ children }: { children: React.ReactNode }) {
+  return <div>{children}</div>;
+};
+
+Card.Footer = function CardFooter({ children }: { children: React.ReactNode }) {
+  return <footer>{children}</footer>;
+};
+
+// Usage - very expressive!
+function BlogCard({ post }: { post: Post }) {
+  return (
+    <Card>
+      <Card.Header>
+        <h2>{post.title}</h2>
+        <time>{post.date}</time>
+      </Card.Header>
+      <Card.Body>
+        <p>{post.excerpt}</p>
+      </Card.Body>
+      <Card.Footer>
+        <Tags tags={post.tags} />
+      </Card.Footer>
+    </Card>
+  );
+}
+```
+
+## State Management Strategies
+
+### Local State First
+
+Start with local state. Don't reach for global state management too early:
+
+```typescript
+function CommentSection({ postId }: { postId: string }) {
+  // Local state is perfect for this
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [newComment, setNewComment] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await addComment(postId, newComment);
+    setNewComment('');
+    // Refresh comments
+    const updated = await fetchComments(postId);
+    setComments(updated);
+  };
+
+  return (
+    <section>
+      <h3>Comments</h3>
+      <CommentList comments={comments} />
+      <CommentForm
+        value={newComment}
+        onChange={setNewComment}
+        onSubmit={handleSubmit}
+      />
+    </section>
+  );
+}
+```
+
+### Context for Cross-Cutting Concerns
+
+Use Context for truly global concerns like themes, auth, or i18n:
+
+```typescript
+// Theme context example
+interface Theme {
+  mode: 'light' | 'dark';
+  toggleMode: () => void;
+}
+
+const ThemeContext = React.createContext<Theme | undefined>(undefined);
+
+function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
+
+  const toggleMode = () => {
+    setMode(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  return (
+    <ThemeContext.Provider value={{ mode, toggleMode }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+// Custom hook for consuming theme
+function useTheme() {
+  const context = React.useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within ThemeProvider');
+  }
+  return context;
+}
+```
+
+## Performance Optimization
+
+### Memoization
+
+Use memoization strategically:
+
+```typescript
+// Memoize expensive calculations
+const expensiveValue = useMemo(() => {
+  return processLargeDataset(data);
+}, [data]);
+
+// Memoize callbacks passed to child components
+const handleClick = useCallback(() => {
+  doSomething(id);
+}, [id]);
+
+// Memoize components
+const MemoizedChild = React.memo(ChildComponent);
+```
+
+### Code Splitting
+
+Split your code for better initial load times:
+
+```typescript
+import { lazy, Suspense } from 'react';
+
+// Lazy load components
+const BlogPost = lazy(() => import('./BlogPost'));
+const CommentSection = lazy(() => import('./CommentSection'));
+
+function App() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <BlogPost slug="hello-world" />
+      <CommentSection postId="123" />
+    </Suspense>
+  );
+}
+```
+
+## TypeScript Integration
+
+Leverage TypeScript for better developer experience:
+
+```typescript
+// Discriminated unions for different states
+type AsyncState<T> =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'success'; data: T }
+  | { status: 'error'; error: Error };
+
+function useAsync<T>(asyncFn: () => Promise<T>) {
+  const [state, setState] = useState<AsyncState<T>>({ status: 'idle' });
+
+  const execute = async () => {
+    setState({ status: 'loading' });
+    try {
+      const data = await asyncFn();
+      setState({ status: 'success', data });
+    } catch (error) {
+      setState({ status: 'error', error: error as Error });
+    }
+  };
+
+  return { state, execute };
+}
+```
+
+## Key Takeaways
+
+Modern React development is about:
+
+- **Composition over inheritance**: Build small, reusable pieces
+- **Hooks for logic reuse**: Extract common patterns into custom hooks
+- **TypeScript for safety**: Catch errors at compile time
+- **Performance when needed**: Don't optimize prematurely
+- **Local state first**: Keep state as close to where it's used as possible
+
+These patterns help create applications that are:
+
+✅ **Maintainable**: Easy to understand and modify
+✅ **Testable**: Components are isolated and focused
+✅ **Scalable**: Architecture supports growth
+✅ **Performant**: Optimized where it matters
+
+---
+
+*What patterns have you found most useful in your React projects? Share your experiences in the comments!*
