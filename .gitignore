@@ -53,3 +53,7 @@ Thumbs.db
 
 # Misc
 .turbo
+=======
+
+.worktrees
+.claude_settings.json
