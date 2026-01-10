@@ -19,9 +19,12 @@ export interface HeroProps {
  */
 export default function Hero({ className }: HeroProps) {
   return (
-    <section className={`${styles.hero} ${className || ''}`}>
+    <section
+      className={`${styles.hero} ${className || ''}`}
+      aria-label="Hero section"
+    >
       {/* Background decorative elements */}
-      <div className={styles.heroBackground}>
+      <div className={styles.heroBackground} aria-hidden="true">
         <div className={styles.gradientBackground} />
         <div className={styles.decorativeCircle} />
         <div className={styles.decorativeCircle} />
