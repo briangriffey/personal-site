@@ -1,74 +1,7 @@
 /* ============================================
-   CSS RESET
+   Global Styles
+   Base styles and CSS custom properties for consistent theming
    ============================================ */
-
-/* Box sizing reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* Prevent font size inflation */
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
-
-/* Remove default list styles */
-ul,
-ol {
-  list-style: none;
-}
-
-/* Make images easier to work with */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* Remove built-in form typography styles */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* Avoid text overflows */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* Remove button styles */
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Remove link styles */
-a {
-  text-decoration: none;
-  color: inherit;
-}
 
 /* ============================================
    CSS VARIABLES
@@ -86,6 +19,8 @@ a {
   --color-primary-700: #0369a1;
   --color-primary-800: #075985;
   --color-primary-900: #0c4a6e;
+  --color-primary: #0070f3;
+  --color-primary-hover: #0051cc;
 
   /* Colors - Secondary */
   --color-secondary-50: #faf5ff;
@@ -113,14 +48,20 @@ a {
 
   /* Semantic Colors */
   --color-background: #ffffff;
+  --color-background-hover: #f8f9fa;
   --color-foreground: var(--color-neutral-900);
+  --color-text-primary: #111;
+  --color-text-secondary: #333;
+  --color-text-muted: #666;
   --color-muted: var(--color-neutral-100);
   --color-muted-foreground: var(--color-neutral-600);
-  --color-border: var(--color-neutral-200);
+  --color-border: #eaeaea;
 
   /* Typography - Font Families */
   --font-sans: var(--font-inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  --font-family-mono: Menlo, Monaco, 'Courier New', monospace;
 
   /* Typography - Font Sizes */
   --font-size-xs: 0.75rem;     /* 12px */
@@ -161,6 +102,12 @@ a {
   --spacing-16: 4rem;     /* 64px */
   --spacing-20: 5rem;     /* 80px */
   --spacing-24: 6rem;     /* 96px */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
 
   /* Border Radius */
   --radius-sm: 0.25rem;   /* 4px */
@@ -173,6 +120,7 @@ a {
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 250ms ease-in-out;
   --transition-slow: 350ms ease-in-out;
+  --transition-base: 0.2s ease;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -188,6 +136,119 @@ a {
   --z-index-modal: 1300;
   --z-index-popover: 1400;
   --z-index-tooltip: 1500;
+
+  /* Max Widths */
+  --max-width-sm: 640px;
+  --max-width-md: 800px;
+  --max-width-lg: 1024px;
+  --max-width-xl: 1200px;
+}
+
+/* ============================================
+   CSS RESET
+   ============================================ */
+
+/* Box sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-xl);
+}
+
+li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove built-in form typography styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-md);
+}
+
+th,
+td {
+  padding: var(--spacing-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
 }
 
 /* ============================================
@@ -196,21 +257,18 @@ a {
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
   overflow-x: hidden;
   width: 100%;
+  height: 100%;
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
-  line-height: var(--line-height-normal);
-  color: var(--color-foreground);
+  line-height: 1.6;
+  color: var(--color-text-primary);
   background-color: var(--color-background);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   overflow-x: hidden;
   width: 100%;
   min-height: 100vh;
@@ -227,19 +285,23 @@ h4,
 h5,
 h6 {
   font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
+  line-height: 1.2;
+  color: var(--color-text-primary);
 }
 
 h1 {
   font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-md);
 }
 
 h2 {
   font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-md);
 }
 
 h3 {
   font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-sm);
 }
 
 h4 {
@@ -256,11 +318,33 @@ h6 {
 
 p {
   line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
 }
 
 code,
 pre {
-  font-family: var(--font-mono);
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+}
+
+code {
+  padding: 0.125rem 0.25rem;
+  background-color: var(--color-background-hover);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+}
+
+pre {
+  padding: var(--spacing-md);
+  background-color: var(--color-background-hover);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
 }
 
 /* ============================================
@@ -269,8 +353,20 @@ pre {
 
 /* Focus states for accessibility */
 :focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Reduce motion for users who prefer it */

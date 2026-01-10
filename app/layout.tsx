@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import SkipLink from '@/components/SkipLink/SkipLink';
 import './globals.css';
@@ -41,6 +42,45 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <nav style={{
+          borderBottom: '1px solid #e5e7eb',
+          marginBottom: '2rem',
+          padding: '1rem 2rem',
+          backgroundColor: '#ffffff'
+        }}>
+          <div style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            display: 'flex',
+            gap: '2rem',
+            alignItems: 'center'
+          }}>
+            <Link
+              href="/"
+              style={{
+                textDecoration: 'none',
+                color: '#1a1a1a',
+                fontWeight: '600',
+                fontSize: '1rem',
+                transition: 'color 0.2s'
+              }}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              style={{
+                textDecoration: 'none',
+                color: '#1a1a1a',
+                fontWeight: '600',
+                fontSize: '1rem',
+                transition: 'color 0.2s'
+              }}
+            >
+              About
+            </Link>
+          </div>
+        </nav>
         <SkipLink />
         {children}
       </body>
