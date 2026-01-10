@@ -1,0 +1,128 @@
+/* ============================================
+   BUTTON COMPONENT STYLES
+   ============================================ */
+
+/* Base Button Styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  text-align: center;
+  border-radius: var(--radius-lg);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+
+  /* Prevent text selection on double-click */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Primary Button Variant */
+.primary {
+  background-color: var(--color-primary-600);
+  color: #ffffff;
+  border-color: var(--color-primary-600);
+  box-shadow: var(--shadow-sm);
+}
+
+.primary:hover {
+  background-color: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.primary:active {
+  background-color: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(0);
+}
+
+.primary:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary Button Variant */
+.secondary {
+  background-color: transparent;
+  color: var(--color-primary-700);
+  border-color: var(--color-primary-600);
+}
+
+.secondary:hover {
+  background-color: var(--color-primary-50);
+  border-color: var(--color-primary-700);
+  transform: translateY(-2px);
+}
+
+.secondary:active {
+  background-color: var(--color-primary-100);
+  border-color: var(--color-primary-800);
+  transform: translateY(0);
+}
+
+.secondary:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Mobile - Ensure minimum touch target size (44px x 44px for accessibility) */
+@media (max-width: 639px) {
+  .button {
+    min-height: 44px;
+    padding: var(--spacing-3) var(--spacing-5);
+  }
+}
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  .button {
+    padding: var(--spacing-4) var(--spacing-8);
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  .button:hover,
+  .button:active {
+    transform: none;
+  }
+}
+
+/* Ensure button is keyboard accessible */
+.button:focus {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Disabled state (optional for future use) */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
