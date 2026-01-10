@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Button/Button';
 import styles from './Hero.module.css';
 
 /**
@@ -44,9 +45,29 @@ export default function Hero({ className }: HeroProps) {
           </p>
         </div>
 
-        {/* CTA Container - will be populated in next subtask */}
+        {/* CTA Container */}
         <div className={styles.ctaContainer}>
-          {/* CTAs will be added in subtask 2.2 */}
+          <Button
+            href="/projects"
+            variant="primary"
+            ariaLabel="View my projects"
+          >
+            View Projects
+          </Button>
+          <Button
+            href="/contact"
+            variant="secondary"
+            ariaLabel="Contact me"
+          >
+            Contact
+          </Button>
+          <Button
+            href="/blog"
+            variant="secondary"
+            ariaLabel="Read my blog"
+          >
+            Read Blog
+          </Button>
         </div>
       </div>
     </section>
