@@ -1,0 +1,223 @@
+/* ============================================
+   BLOG CARD COMPONENT STYLES
+   ============================================ */
+
+/* Card Container */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--color-primary-300);
+}
+
+.card:active {
+  transform: translateY(-2px);
+}
+
+/* Card Link - Full clickable area */
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-6);
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Post Title */
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-3);
+  transition: color var(--transition-fast);
+}
+
+.cardLink:hover .title {
+  color: var(--color-primary-600);
+}
+
+/* Metadata Container */
+.metadata {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted-foreground);
+}
+
+/* Date */
+.date {
+  font-weight: var(--font-weight-medium);
+}
+
+/* Separator */
+.separator {
+  color: var(--color-neutral-300);
+}
+
+/* Reading Time */
+.readingTime {
+  font-weight: var(--font-weight-normal);
+}
+
+/* Post Excerpt */
+.excerpt {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-neutral-700);
+  margin-bottom: var(--spacing-4);
+  flex-grow: 1;
+}
+
+/* Tags Container */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+/* Individual Tag */
+.tag {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary-700);
+  background-color: var(--color-primary-50);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.cardLink:hover .tag {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-800);
+}
+
+/* Read More Indicator */
+.readMore {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-600);
+  margin-top: auto;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.cardLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Mobile - Optimize spacing and text sizes */
+@media (max-width: 639px) {
+  .cardLink {
+    padding: var(--spacing-5);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .excerpt {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Tablet and up - Increase spacing */
+@media (min-width: 640px) {
+  .cardLink {
+    padding: var(--spacing-6);
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Desktop - Further optimize for larger screens */
+@media (min-width: 1024px) {
+  .cardLink {
+    padding: var(--spacing-8);
+  }
+
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:active {
+    transform: none;
+  }
+
+  .arrow {
+    transition: none;
+  }
+
+  .cardLink:hover .arrow {
+    transform: none;
+  }
+}
+
+/* Ensure proper contrast for keyboard focus */
+.cardLink:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 4px;
+  border-radius: var(--radius-lg);
+}
+
+/* Print styles - Remove hover effects and optimize spacing */
+@media print {
+  .card {
+    box-shadow: none;
+    border: 1px solid var(--color-neutral-300);
+    page-break-inside: avoid;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .readMore {
+    display: none;
+  }
+}
