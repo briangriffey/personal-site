@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import SkipLink from '@/components/SkipLink/SkipLink';
+import Navigation from '@/components/Navigation/Navigation';
 import './globals.css';
 
 // Configure Inter font with optimal loading
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SkipLink />
+        <Navigation />
         {children}
       </body>
     </html>
