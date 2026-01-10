@@ -1,0 +1,200 @@
+/* ============================================
+   BLOG POST PAGE STYLES
+   ============================================ */
+
+/* Blog Post Page Container */
+.blogPostPage {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: var(--spacing-12) var(--spacing-6);
+}
+
+/* Post Header */
+.header {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-12);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-6);
+  word-wrap: break-word;
+}
+
+/* Post Metadata */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted-foreground);
+}
+
+.date,
+.readingTime {
+  font-weight: var(--font-weight-medium);
+}
+
+.separator {
+  font-weight: var(--font-weight-bold);
+  user-select: none;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-8);
+}
+
+.tag {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.15);
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+}
+
+/* Post Content */
+.content {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-12);
+  animation: fadeInUp 0.6s ease-out 0.2s backwards;
+}
+
+/* Import syntax highlighting styles */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css");
+
+/* Footer */
+.footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: var(--spacing-8);
+  border-top: 1px solid var(--color-border);
+  animation: fadeInUp 0.6s ease-out 0.3s backwards;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+}
+
+.backLink:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.1);
+  transform: translateX(-4px);
+}
+
+.backLink:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  .blogPostPage {
+    padding: var(--spacing-16) var(--spacing-8);
+  }
+
+  .title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .meta {
+    font-size: var(--font-size-base);
+  }
+
+  .tag {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .blogPostPage {
+    padding: var(--spacing-20) var(--spacing-12);
+  }
+
+  .title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   USER PREFERENCES
+   ============================================ */
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .content,
+  .footer {
+    animation: none;
+  }
+
+  .backLink:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .blogPostPage {
+    padding: var(--spacing-6);
+  }
+
+  .header {
+    margin-bottom: var(--spacing-6);
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .tag {
+    border: 1px solid #000;
+    background-color: transparent;
+  }
+}
