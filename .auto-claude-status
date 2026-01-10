@@ -1,25 +1,25 @@
 {
   "active": true,
-  "spec": "001-next-js-15-project-setup",
-  "state": "complete",
+  "spec": "002-homepage-with-hero-section",
+  "state": "building",
   "subtasks": {
-    "completed": 9,
-    "total": 9,
-    "in_progress": 0,
+    "completed": 0,
+    "total": 0,
+    "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Development Environment",
+    "current": "Styling Infrastructure Setup",
     "id": null,
-    "total": 3
+    "total": 2
   },
   "workers": {
     "active": 0,
     "max": 1
   },
   "session": {
-    "number": 10,
-    "started_at": "2026-01-09T17:48:00.489884"
+    "number": 2,
+    "started_at": "2026-01-10T13:14:29.255596"
   },
-  "last_update": "2026-01-10T08:36:30.178137"
+  "last_update": "2026-01-10T13:15:48.462720"
 }
