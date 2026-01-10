@@ -1,11 +1,11 @@
 {
   "active": true,
   "spec": "001-next-js-15-project-setup",
-  "state": "building",
+  "state": "complete",
   "subtasks": {
-    "completed": 8,
+    "completed": 9,
     "total": 9,
-    "in_progress": 1,
+    "in_progress": 0,
     "failed": 0
   },
   "phase": {
@@ -21,5 +21,5 @@
     "number": 10,
     "started_at": "2026-01-09T17:48:00.489884"
   },
-  "last_update": "2026-01-10T08:33:50.454931"
+  "last_update": "2026-01-10T08:36:30.178137"
 }

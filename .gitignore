@@ -1,5 +1,6 @@
 # Auto Claude data directory
 .auto-claude/
+.auto-claude-status
 
 # Dependencies
 node_modules/
