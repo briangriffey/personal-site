@@ -3,13 +3,13 @@
   "spec": "001-next-js-15-project-setup",
   "state": "building",
   "subtasks": {
-    "completed": 0,
-    "total": 0,
+    "completed": 2,
+    "total": 9,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Project Initialization",
+    "current": "Code Quality Tools",
     "id": null,
     "total": 2
   },
@@ -18,8 +18,8 @@
     "max": 1
   },
   "session": {
-    "number": 2,
+    "number": 4,
     "started_at": "2026-01-09T17:48:00.489884"
   },
-  "last_update": "2026-01-09T21:24:49.651298"
+  "last_update": "2026-01-09T23:44:23.420723"
 }
