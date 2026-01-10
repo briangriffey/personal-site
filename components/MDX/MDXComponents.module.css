@@ -1,0 +1,387 @@
+/* ============================================
+   MDX COMPONENTS STYLES
+   ============================================ */
+
+/* Container for all MDX content */
+.mdxContent {
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+/* ============================================
+   HEADINGS
+   ============================================ */
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-foreground);
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-4);
+  scroll-margin-top: var(--spacing-20);
+}
+
+.h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  margin-top: 0;
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  font-size: var(--font-size-3xl);
+  margin-top: var(--spacing-12);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.h3 {
+  font-size: var(--font-size-2xl);
+  margin-top: var(--spacing-10);
+}
+
+.h4 {
+  font-size: var(--font-size-xl);
+}
+
+.h5 {
+  font-size: var(--font-size-lg);
+}
+
+.h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-muted-foreground);
+}
+
+/* ============================================
+   TEXT ELEMENTS
+   ============================================ */
+
+.paragraph {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-4);
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+
+.link {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary-300);
+  text-underline-offset: 2px;
+  transition: all var(--transition-fast);
+  font-weight: var(--font-weight-medium);
+}
+
+.link:hover {
+  color: var(--color-primary-700);
+  text-decoration-color: var(--color-primary-600);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   CODE ELEMENTS
+   ============================================ */
+
+/* Inline code */
+.inlineCode {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.125em 0.375em;
+  background-color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-foreground);
+  white-space: nowrap;
+}
+
+/* Code block container */
+.pre {
+  margin: var(--spacing-6) 0;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-neutral-900);
+  border: 1px solid var(--color-neutral-800);
+  box-shadow: var(--shadow-md);
+}
+
+/* Code block */
+.codeBlock {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  padding: var(--spacing-6);
+  overflow-x: auto;
+  color: var(--color-neutral-100);
+}
+
+/* Syntax highlighting is provided by rehype-highlight */
+/* The .hljs class and syntax-specific classes are added by the plugin */
+
+/* ============================================
+   LISTS
+   ============================================ */
+
+.ul,
+.ol {
+  margin: var(--spacing-4) 0;
+  padding-left: var(--spacing-8);
+  color: var(--color-foreground);
+}
+
+.ul {
+  list-style-type: disc;
+}
+
+.ol {
+  list-style-type: decimal;
+}
+
+.li {
+  margin-bottom: var(--spacing-2);
+  line-height: var(--line-height-relaxed);
+  padding-left: var(--spacing-2);
+}
+
+.li::marker {
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Nested lists */
+.li > .ul,
+.li > .ol {
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}
+
+.ul .ul {
+  list-style-type: circle;
+}
+
+.ul .ul .ul {
+  list-style-type: square;
+}
+
+/* ============================================
+   BLOCKQUOTE
+   ============================================ */
+
+.blockquote {
+  margin: var(--spacing-6) 0;
+  padding: var(--spacing-4) var(--spacing-6);
+  border-left: 4px solid var(--color-primary-500);
+  background-color: var(--color-primary-50);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  color: var(--color-neutral-700);
+}
+
+.blockquote p {
+  margin-bottom: var(--spacing-3);
+}
+
+.blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   HORIZONTAL RULE
+   ============================================ */
+
+.hr {
+  margin: var(--spacing-12) 0;
+  border: 0;
+  border-top: 2px solid var(--color-border);
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.tableWrapper {
+  margin: var(--spacing-6) 0;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.thead {
+  background-color: var(--color-muted);
+}
+
+.th {
+  padding: var(--spacing-3) var(--spacing-4);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-foreground);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.tbody .tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tbody .tr:last-child {
+  border-bottom: none;
+}
+
+.tbody .tr:hover {
+  background-color: var(--color-neutral-50);
+}
+
+.td {
+  padding: var(--spacing-3) var(--spacing-4);
+  color: var(--color-foreground);
+}
+
+/* ============================================
+   IMAGES
+   ============================================ */
+
+.img {
+  max-width: 100%;
+  height: auto;
+  margin: var(--spacing-8) auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Mobile */
+@media (max-width: 639px) {
+  .h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .h3 {
+    font-size: var(--font-size-xl);
+  }
+
+  .h4 {
+    font-size: var(--font-size-lg);
+  }
+
+  .codeBlock {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-4);
+  }
+
+  .ul,
+  .ol {
+    padding-left: var(--spacing-6);
+  }
+
+  .blockquote {
+    padding: var(--spacing-3) var(--spacing-4);
+    margin-left: calc(-1 * var(--spacing-4));
+    margin-right: calc(-1 * var(--spacing-4));
+  }
+}
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  .h1 {
+    font-size: var(--font-size-5xl);
+  }
+
+  .h2 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .paragraph {
+    font-size: var(--font-size-lg);
+  }
+
+  .codeBlock {
+    padding: var(--spacing-8);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .h1 {
+    font-size: var(--font-size-6xl);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    transition: none;
+  }
+}
+
+/* Focus states for keyboard navigation */
+.h1:focus-visible,
+.h2:focus-visible,
+.h3:focus-visible,
+.h4:focus-visible,
+.h5:focus-visible,
+.h6:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .pre,
+  .codeBlock {
+    border: 1px solid var(--color-neutral-300);
+    page-break-inside: avoid;
+  }
+
+  .img {
+    page-break-inside: avoid;
+  }
+
+  .blockquote {
+    page-break-inside: avoid;
+  }
+
+  .table {
+    page-break-inside: avoid;
+  }
+}
