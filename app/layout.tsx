@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   description: 'A modern personal website built with Next.js 15',
 };
 
+// Viewport configuration for responsive design
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -182,6 +182,35 @@
    RESPONSIVE BREAKPOINTS
    ============================================ */
 
+/* Very Small Mobile (< 375px) - iPhone SE, small devices */
+@media (max-width: 374px) {
+  .hero {
+    padding: var(--spacing-6) var(--spacing-4);
+  }
+
+  .heading {
+    font-size: var(--font-size-4xl);
+  }
+
+  .subheading {
+    font-size: var(--font-size-xl);
+  }
+
+  .tagline {
+    font-size: var(--font-size-base);
+  }
+
+  .decorativeCircle:nth-child(2) {
+    width: 200px;
+    height: 200px;
+  }
+
+  .decorativeCircle:nth-child(3) {
+    width: 150px;
+    height: 150px;
+  }
+}
+
 /* Tablet (640px - 1024px) */
 @media (min-width: 640px) {
   .hero {
