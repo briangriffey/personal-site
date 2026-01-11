@@ -29,10 +29,7 @@ export default function ContactSection() {
       >
         <h2
           style={{
-            fontSize: '2rem',
-            fontWeight: 700,
             marginBottom: '1rem',
-            color: '#111',
           }}
         >
           Get in Touch
@@ -40,7 +37,6 @@ export default function ContactSection() {
         <p
           style={{
             fontSize: '1.125rem',
-            color: '#666',
             marginBottom: '2rem',
           }}
         >
@@ -58,30 +54,14 @@ export default function ContactSection() {
         <h3
           style={{
             fontSize: '1.125rem',
-            fontWeight: 600,
             marginBottom: '0.75rem',
-            color: '#333',
           }}
         >
           Email
         </h3>
         <a
           href={emailLink}
-          style={{
-            fontSize: '1.25rem',
-            color: '#0070f3',
-            textDecoration: 'none',
-            fontWeight: 500,
-            transition: 'color 0.2s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#0051cc';
-            e.currentTarget.style.textDecoration = 'underline';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = '#0070f3';
-            e.currentTarget.style.textDecoration = 'none';
-          }}
+          className="link-inline"
         >
           {contactConfig.email}
         </a>
@@ -96,9 +76,7 @@ export default function ContactSection() {
         <h3
           style={{
             fontSize: '1.125rem',
-            fontWeight: 600,
             marginBottom: '1rem',
-            color: '#333',
           }}
         >
           Connect

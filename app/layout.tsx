@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import SkipLink from '@/components/SkipLink/SkipLink';
 import Navigation from '@/components/Navigation/Navigation';
 import { ThemeProvider } from '@/components/ThemeProvider/ThemeProvider';
-import './globals.css';
+import '@/styles/index.css';
 
 // Configure Noto Sans font with optimal loading
 const notoSans = localFont({

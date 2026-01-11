@@ -24,7 +24,6 @@ export default function About() {
         }}>About</h1>
         <p style={{
           fontSize: "1.2rem",
-          color: "#666",
           marginBottom: "3rem"
         }}>
           Professional background, expertise, and current focus
@@ -32,9 +31,6 @@ export default function About() {
 
         <h2 style={{
           marginTop: "3rem",
-          fontSize: "1.8rem",
-          fontWeight: "600",
-          color: "#2563eb",
           marginBottom: "1rem",
           paddingBottom: "0.5rem",
           borderBottom: "2px solid #e5e7eb"
@@ -66,9 +62,6 @@ export default function About() {
 
       <section style={{ marginTop: "4rem" }}>
         <h2 style={{
-          fontSize: "1.8rem",
-          fontWeight: "600",
-          color: "#2563eb",
           marginBottom: "1rem",
           paddingBottom: "0.5rem",
           borderBottom: "2px solid #e5e7eb"
@@ -81,9 +74,7 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
+          fontSize: "1.3rem"
         }}>
           Full-Stack Development
         </h3>
@@ -98,8 +89,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           System Architecture & Design
         </h3>
@@ -114,8 +103,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           AI-Assisted Development
         </h3>
@@ -130,8 +117,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           Developer Experience & Tooling
         </h3>
@@ -146,9 +131,6 @@ export default function About() {
 
       <section style={{ marginTop: "4rem" }}>
         <h2 style={{
-          fontSize: "1.8rem",
-          fontWeight: "600",
-          color: "#2563eb",
           marginBottom: "1rem",
           paddingBottom: "0.5rem",
           borderBottom: "2px solid #e5e7eb"
@@ -163,8 +145,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           The Claude Code Methodology
         </h3>
@@ -187,8 +167,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           Practical Application & Experimentation
         </h3>
@@ -216,9 +194,6 @@ export default function About() {
 
       <section style={{ marginTop: "4rem", marginBottom: "4rem" }}>
         <h2 style={{
-          fontSize: "1.8rem",
-          fontWeight: "600",
-          color: "#2563eb",
           marginBottom: "1rem",
           paddingBottom: "0.5rem",
           borderBottom: "2px solid #e5e7eb"
@@ -232,8 +207,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           Clarity Over Cleverness
         </h3>
@@ -247,8 +220,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           Pragmatism Over Perfection
         </h3>
@@ -264,8 +235,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           Collaboration & Communication
         </h3>
@@ -280,8 +249,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           Learning in Public
         </h3>
@@ -297,8 +264,6 @@ export default function About() {
         <h3 style={{
           marginTop: "2rem",
           fontSize: "1.3rem",
-          fontWeight: "600",
-          color: "#1a1a1a"
         }}>
           Quality as an Investment
         </h3>
