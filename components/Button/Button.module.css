@@ -46,6 +46,16 @@
   pointer-events: none;
 }
 
+/* Dark mode: Lighter shimmer effect */
+[data-theme='dark'] .button::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+}
+
 .button:hover::before {
   left: 100%;
 }
