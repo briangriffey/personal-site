@@ -68,21 +68,21 @@
    ============================================ */
 
 :root {
-  /* Colors - Primary (Cyan-Blue)
-     Main brand color - vibrant, modern, tech-forward
+  /* Colors - Primary (Pink-Coral)
+     Main brand color - vibrant, warm, energetic
      USE FOR: Primary buttons, main links, brand elements, key CTAs */
-  --color-primary-50: #ecfeff;
-  --color-primary-100: #cffafe;
-  --color-primary-200: #a5f3fc;
-  --color-primary-300: #67e8f9;
-  --color-primary-400: #22d3ee;
-  --color-primary-500: #06b6d4;
-  --color-primary-600: #0891b2;
-  --color-primary-700: #0e7490;
-  --color-primary-800: #155e75;
-  --color-primary-900: #164e63;
-  --color-primary: #0070f3;
-  --color-primary-hover: #0051cc;
+  --color-primary-50: #fef2f4;
+  --color-primary-100: #fde6ea;
+  --color-primary-200: #fcd0d8;
+  --color-primary-300: #D97789;
+  --color-primary-400: #f86b85;
+  --color-primary-500: #F24B6A;
+  --color-primary-600: #e63358;
+  --color-primary-700: #c22648;
+  --color-primary-800: #a12040;
+  --color-primary-900: #732231;
+  --color-primary: #F24B6A;
+  --color-primary-hover: #e63358;
 
   /* Colors - Secondary (Purple)
      Complementary cool tone for accents and secondary actions
@@ -98,19 +98,19 @@
   --color-secondary-800: #6b21a8;
   --color-secondary-900: #581c87;
 
-  /* Colors - Accent (Warm Amber-Coral)
-     Warm accent for visual interest, CTAs, and highlighting
-     USE FOR: Call-to-action buttons, highlights, important notices, warm accents */
-  --color-accent-50: #fff7ed;
-  --color-accent-100: #ffedd5;
-  --color-accent-200: #fed7aa;
-  --color-accent-300: #fdba74;
-  --color-accent-400: #fb923c;
-  --color-accent-500: #f97316;
-  --color-accent-600: #ea580c;
-  --color-accent-700: #c2410c;
-  --color-accent-800: #9a3412;
-  --color-accent-900: #7c2d12;
+  /* Colors - Accent (Teal-Cyan Contrasted)
+     Cool contrasted accent for visual interest and highlighting
+     USE FOR: Call-to-action buttons, highlights, important notices, contrasted elements */
+  --color-accent-50: #f0f9fa;
+  --color-accent-100: #d9f0f3;
+  --color-accent-200: #b3e1e7;
+  --color-accent-300: #7dc9d4;
+  --color-accent-400: #3da8b8;
+  --color-accent-500: #0B758C;
+  --color-accent-600: #0a6579;
+  --color-accent-700: #095465;
+  --color-accent-800: #084452;
+  --color-accent-900: #073843;
 
   /* Colors - Success (Emerald Green)
      Semantic color for positive feedback, confirmations, and success states
@@ -183,16 +183,16 @@
   /* Semantic Colors - Application-wide color roles
      These colors adapt automatically in dark mode
      USE THESE for consistent theming across light/dark modes */
-  --color-background: #ffffff;
-  --color-background-hover: #f8f9fa;
+  --color-background: #F2EBDC;
+  --color-background-hover: #eae0cc;
   --color-foreground: var(--color-neutral-900);
-  --color-text-primary: #111;
-  --color-text-secondary: #333;
-  --color-text-muted: #666;
-  --color-muted: var(--color-neutral-100);
+  --color-text-primary: #1a1410;
+  --color-text-secondary: #3d3429;
+  --color-text-muted: #6b5d4f;
+  --color-muted: #e5dcc8;
   --color-muted-foreground: var(--color-neutral-600);
-  --color-border: #eaeaea;
-  --color-border-hover: var(--color-neutral-300);
+  --color-border: #d9cdb5;
+  --color-border-hover: #cec0a8;
 
   /* Typography - Font Families
      Sans: Inter (via next/font) with system font fallbacks
