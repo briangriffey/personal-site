@@ -1,0 +1,531 @@
+/* ============================================
+   LINK COMPONENT STYLES
+   ============================================ */
+
+/* Base Link Styles
+   Accessible, visually clear hyperlinks for navigation and content.
+   Links are fundamental UI elements that connect content and pages,
+   with distinct styling for different contexts (inline, navigation, external). */
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-primary-600);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--color-primary-700);
+}
+
+.link:active {
+  color: var(--color-primary-800);
+}
+
+/* Base link with animated underline */
+.link-base {
+  position: relative;
+  color: var(--color-primary-600);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.link-base::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary-500), var(--color-secondary-500));
+  transition: width var(--transition-normal);
+}
+
+.link-base:hover {
+  color: var(--color-primary-700);
+}
+
+.link-base:hover::after {
+  width: 100%;
+}
+
+/* Link Variants
+   ============================================ */
+
+/* Inline Link - For use within text content (paragraphs, articles) */
+.link-inline {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary-300);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  font-weight: var(--font-weight-normal);
+  transition: all var(--transition-fast);
+}
+
+.link-inline:hover {
+  color: var(--color-primary-700);
+  text-decoration-color: var(--color-primary-500);
+  text-decoration-thickness: 2px;
+}
+
+.link-inline:active {
+  color: var(--color-primary-800);
+}
+
+/* Navigation Link - For navigation menus and headers */
+.link-nav {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-2) var(--spacing-3);
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.link-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--color-primary-500);
+  transition: width var(--transition-normal);
+}
+
+.link-nav:hover {
+  color: var(--color-primary-600);
+  background-color: var(--color-primary-50);
+}
+
+.link-nav:hover::after {
+  width: 80%;
+}
+
+.link-nav:active {
+  background-color: var(--color-primary-100);
+}
+
+/* Active navigation link state */
+.link-nav-active,
+.link-nav[aria-current="page"] {
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-semibold);
+}
+
+.link-nav-active::after,
+.link-nav[aria-current="page"]::after {
+  width: 80%;
+  background: linear-gradient(90deg, var(--color-primary-500), var(--color-secondary-500));
+}
+
+/* Subtle Link - Low emphasis for secondary navigation or footer links */
+.link-subtle {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.link-subtle:hover {
+  color: var(--color-primary-600);
+}
+
+/* Button-style Link - Link styled as a button */
+.link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-6);
+  background-color: var(--color-primary-500);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.link-button:hover {
+  background-color: var(--color-primary-600);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.link-button:active {
+  background-color: var(--color-primary-700);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(0);
+}
+
+/* Link Color Variants
+   ============================================ */
+
+.link-primary {
+  color: var(--color-primary-600);
+}
+
+.link-primary:hover {
+  color: var(--color-primary-700);
+}
+
+.link-secondary {
+  color: var(--color-secondary-600);
+}
+
+.link-secondary:hover {
+  color: var(--color-secondary-700);
+}
+
+.link-accent {
+  color: var(--color-accent-600);
+}
+
+.link-accent:hover {
+  color: var(--color-accent-700);
+}
+
+.link-muted {
+  color: var(--color-text-muted);
+}
+
+.link-muted:hover {
+  color: var(--color-text-secondary);
+}
+
+/* External Link Indicator
+   ============================================ */
+
+/* External link with icon indicator */
+.link-external {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.link-external::after {
+  content: '↗';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875em;
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+}
+
+.link-external:hover::after {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* External link with subtle icon */
+.link-external-subtle::after {
+  content: '⤴';
+  font-size: 0.75em;
+  margin-left: 0.125rem;
+  opacity: 0.5;
+}
+
+.link-external-subtle:hover::after {
+  opacity: 0.8;
+}
+
+/* Link Special States
+   ============================================ */
+
+/* Disabled Link - Non-interactive state */
+.link-disabled,
+.link[aria-disabled="true"] {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+.link-disabled::after,
+.link[aria-disabled="true"]::after {
+  display: none;
+}
+
+/* Visited Link - Distinct styling for previously visited links */
+.link-visited:visited {
+  color: var(--color-secondary-600);
+}
+
+.link-inline.link-visited:visited {
+  color: var(--color-secondary-600);
+  text-decoration-color: var(--color-secondary-300);
+}
+
+/* Link with icon */
+.link-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.link-icon svg,
+.link-icon .icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.link-icon:hover svg,
+.link-icon:hover .icon {
+  transform: translateX(2px);
+}
+
+/* Link Size Variants
+   ============================================ */
+
+.link-sm {
+  font-size: var(--font-size-sm);
+  gap: 0.125rem;
+}
+
+.link-sm svg,
+.link-sm .icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.link-lg {
+  font-size: var(--font-size-lg);
+  gap: 0.375rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.link-lg svg,
+.link-lg .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Link Special Features
+   ============================================ */
+
+/* Link with badge/count indicator */
+.link-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.link-badge-count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  background-color: var(--color-error-500);
+  color: #ffffff;
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-background);
+}
+
+/* Link Group - Multiple links displayed together */
+.link-group {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+}
+
+.link-group-vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+}
+
+/* Breadcrumb Links */
+.link-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.link-breadcrumb:hover {
+  color: var(--color-primary-600);
+}
+
+.link-breadcrumb::after {
+  content: '/';
+  margin: 0 var(--spacing-2);
+  color: var(--color-text-muted);
+}
+
+.link-breadcrumb:last-child::after {
+  display: none;
+}
+
+.link-breadcrumb[aria-current="page"] {
+  color: var(--color-foreground);
+  font-weight: var(--font-weight-medium);
+  pointer-events: none;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Mobile - Increase tap target sizes for better touch interaction */
+@media (max-width: 767px) {
+  .link-nav {
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+
+  .link-button {
+    padding: var(--spacing-3) var(--spacing-5);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Increase external link icon size for visibility */
+  .link-external::after {
+    font-size: 1em;
+  }
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .link-nav {
+    padding: var(--spacing-2) var(--spacing-3);
+  }
+}
+
+/* Desktop - Enhanced hover effects */
+@media (min-width: 1024px) {
+  .link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .link-base,
+  .link-inline,
+  .link-nav,
+  .link-subtle,
+  .link-button,
+  .link-external::after,
+  .link-icon svg,
+  .link-icon .icon {
+    transition: none;
+  }
+
+  .link-base:hover::after,
+  .link-nav:hover::after {
+    transition: none;
+  }
+
+  .link-button:hover,
+  .link-button:active {
+    transform: none;
+  }
+
+  .link-external:hover::after {
+    transform: none;
+  }
+
+  .link-icon:hover svg,
+  .link-icon:hover .icon {
+    transform: none;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.link:focus-visible,
+.link-base:focus-visible,
+.link-inline:focus-visible,
+.link-nav:focus-visible,
+.link-subtle:focus-visible,
+.link-button:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Enhanced focus for button-style links */
+.link-button:focus-visible {
+  outline-offset: 4px;
+  box-shadow:
+    var(--shadow-md),
+    0 0 0 4px rgba(6, 182, 212, 0.2);
+}
+
+/* Ensure sufficient contrast for text content */
+/* Primary links use 600 shade for 4.5:1+ contrast on white background (WCAG AA) */
+/* Navigation links use foreground color for maximum readability */
+/* Subtle links use text-secondary for clear hierarchy while maintaining 4.5:1+ contrast */
+
+/* Skip link (for screen readers and keyboard navigation) */
+.link-skip {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--color-primary-500);
+  color: #ffffff;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  z-index: var(--z-index-modal);
+  transition: top var(--transition-fast);
+}
+
+.link-skip:focus {
+  top: var(--spacing-4);
+  outline: 2px solid var(--color-primary-700);
+  outline-offset: 2px;
+}
+
+/* Screen reader only text for link context */
+.link-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Ensure links are clearly identifiable (not just by color) */
+/* External links use icon indicators */
+/* Navigation links use background and underline on hover */
+/* Inline links use underlines */
+/* This ensures WCAG 2.1 compliance for users with color vision deficiencies */

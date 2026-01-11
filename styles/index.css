@@ -1,0 +1,121 @@
+/* ============================================
+   DESIGN SYSTEM - CENTRAL INDEX
+   ============================================
+
+   This file serves as the central entry point for the entire design system.
+   It imports all design system styles in the correct order to ensure proper
+   cascading and specificity.
+
+   IMPORT ORDER:
+   1. Global Styles - CSS variables, reset, base styles, utilities
+   2. Component Styles - Reusable UI components (alphabetically)
+
+   USAGE:
+   Import this file in your application's root layout or _app file:
+
+   // In app/layout.tsx or pages/_app.tsx
+   import '@/styles/index.css';
+
+   Or import globals.css directly and components as needed:
+
+   // For more granular control
+   import '@/app/globals.css';
+   import '@/styles/components/card.css';
+
+   ============================================ */
+
+/* ============================================
+   1. GLOBAL STYLES
+   ============================================
+
+   Contains:
+   - CSS Reset
+   - CSS Variables (design tokens)
+   - Dark Mode
+   - Base HTML element styles
+   - Typography system
+   - Layout utilities
+   - Text utilities
+   - Gradient utilities
+   - Accent decorations
+   - Interaction utilities
+
+   This is the foundation of the design system and must be imported first.
+   ============================================ */
+
+@import '../app/globals.css';
+
+/* ============================================
+   2. COMPONENT STYLES
+   ============================================
+
+   Reusable UI component styles that build upon the global design tokens.
+   Components are imported alphabetically for easy maintenance.
+
+   Available Components:
+   - Badge: Labels, tags, status indicators, skill chips
+   - Card: Content containers with various layouts and effects
+   - Link: Text links, navigation links, external links
+
+   ============================================ */
+
+/* Badge Component
+   Small inline labels for tags, status, and metadata
+   Variants: color, size, style (outlined/solid), shape (default/pill/dot)
+   Usage: Skill tags, status badges, counts, notifications */
+@import './components/badge.css';
+
+/* Card Component
+   Flexible containers for grouping related content
+   Variants: basic, outlined, elevated, interactive, gradient
+   Layouts: vertical (default), horizontal, compact
+   Usage: Blog posts, projects, testimonials, feature cards */
+@import './components/card.css';
+
+/* Link Component
+   Text links with hover effects and semantic variants
+   Variants: inline, navigation, subtle, button-style, external
+   Features: Animated underlines, icons, badges, breadcrumbs
+   Usage: Navigation menus, inline text links, CTAs, footer links */
+@import './components/link.css';
+
+/* ============================================
+   EXTENDING THE DESIGN SYSTEM
+   ============================================
+
+   When adding new components:
+
+   1. Create a new CSS file in ./components/
+   2. Follow the existing naming and documentation patterns
+   3. Use CSS variables from globals.css for consistency
+   4. Add an @import statement above in alphabetical order
+   5. Update styles/README.md with component documentation
+
+   Example:
+
+   // ./components/button.css
+   .button {
+     padding: var(--spacing-3) var(--spacing-6);
+     background: var(--color-primary-600);
+     color: var(--color-background);
+     border-radius: var(--radius-md);
+     transition: all var(--transition-fast);
+   }
+
+   // Then add to this file:
+   @import './components/button.css';
+
+   ============================================ */
+
+/* ============================================
+   NOTES FOR MAINTAINERS
+   ============================================
+
+   - This file should ONLY contain @import statements and comments
+   - Never add actual CSS rules here - create a new component file instead
+   - Keep component imports in alphabetical order
+   - Update the "Available Components" list above when adding new components
+   - Ensure all imported files use CSS variables for consistency
+   - Document new components in styles/README.md
+
+   ============================================ */

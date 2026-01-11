@@ -28,6 +28,7 @@ export default function Hero({ className }: HeroProps) {
         <div className={styles.gradientBackground} />
         <div className={styles.decorativeCircle} />
         <div className={styles.decorativeCircle} />
+        <div className={styles.decorativeCircle} />
       </div>
 
       {/* Main hero content */}

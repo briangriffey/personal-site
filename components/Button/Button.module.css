@@ -4,6 +4,7 @@
 
 /* Base Button Styles */
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -19,6 +20,7 @@
   white-space: nowrap;
   text-decoration: none;
   user-select: none;
+  overflow: hidden;
 
   /* Prevent text selection on double-click */
   -webkit-user-select: none;
@@ -26,32 +28,66 @@
   -ms-user-select: none;
 }
 
+/* Shimmer effect on hover using pseudo-element */
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
 /* Primary Button Variant */
 .primary {
-  background-color: var(--color-primary-600);
+  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
   color: #ffffff;
   border-color: var(--color-primary-600);
-  box-shadow: var(--shadow-sm);
+  box-shadow:
+    var(--shadow-sm),
+    0 0 0 0 rgba(6, 182, 212, 0.4);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    background var(--transition-normal);
 }
 
 .primary:hover {
-  background-color: var(--color-primary-700);
+  background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
   border-color: var(--color-primary-700);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 20px 0 rgba(6, 182, 212, 0.4);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .primary:active {
-  background-color: var(--color-primary-800);
+  background: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-900) 100%);
   border-color: var(--color-primary-800);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(0);
+  box-shadow:
+    var(--shadow-sm),
+    0 0 10px 0 rgba(6, 182, 212, 0.3);
+  transform: translateY(-1px) scale(1);
 }
 
 .primary:focus-visible {
   outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    var(--shadow-md),
+    0 0 0 4px rgba(6, 182, 212, 0.2);
 }
 
 /* Secondary Button Variant */
@@ -59,23 +95,59 @@
   background-color: transparent;
   color: var(--color-primary-700);
   border-color: var(--color-primary-600);
+  box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+  transition:
+    transform var(--transition-normal),
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    color var(--transition-normal);
+}
+
+/* Gradient border effect on hover using pseudo-element */
+.secondary::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-secondary-500) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .secondary:hover {
   background-color: var(--color-primary-50);
-  border-color: var(--color-primary-700);
-  transform: translateY(-2px);
+  border-color: transparent;
+  color: var(--color-primary-800);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    var(--shadow-md),
+    0 0 20px 0 rgba(6, 182, 212, 0.2);
+}
+
+.secondary:hover::after {
+  opacity: 1;
 }
 
 .secondary:active {
   background-color: var(--color-primary-100);
-  border-color: var(--color-primary-800);
-  transform: translateY(0);
+  border-color: transparent;
+  color: var(--color-primary-900);
+  transform: translateY(-1px) scale(1);
+  box-shadow: var(--shadow-sm);
 }
 
 .secondary:focus-visible {
   outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2);
 }
 
 /* ============================================
@@ -111,6 +183,19 @@
   .button:hover,
   .button:active {
     transform: none;
+  }
+
+  /* Disable shimmer effect */
+  .button::before,
+  .button:hover::before {
+    transition: none;
+    opacity: 0;
+  }
+
+  /* Disable gradient border animation */
+  .secondary::after,
+  .secondary:hover::after {
+    transition: none;
   }
 }
 
