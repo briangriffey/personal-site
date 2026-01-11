@@ -39,13 +39,14 @@ export default function Hero({ className }: HeroProps) {
 
           {/* Professional Role */}
           <p className={styles.subheading}>
-            Full-Stack Software Engineer
+            Living with intention, creating with purpose, learning continuously
           </p>
+
+          {/* alternative Living intentionally, creating constantly, learning endlessly */}
 
           {/* Professional Tagline / Value Proposition */}
           <p className={styles.tagline}>
-            Building exceptional web experiences with modern technologies.
-            Passionate about creating clean, scalable solutions that make a difference.
+            Finding zen through creation—improving lives, sparking curiosity, seeking clarity. Building thoughtfully, learning openly, staying present
           </p>
         </div>
 
