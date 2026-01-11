@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import SkipLink from '@/components/SkipLink/SkipLink';
 import Navigation from '@/components/Navigation/Navigation';
+import { ThemeProvider } from '@/components/ThemeProvider/ThemeProvider';
 import './globals.css';
 
 // Configure Inter font with optimal loading
@@ -41,10 +42,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const storageKey = 'theme';
+                  const stored = localStorage.getItem(storageKey);
+                  let theme = 'light';
+
+                  if (stored === 'light' || stored === 'dark') {
+                    theme = stored;
+                  } else if (stored === 'system' || !stored) {
+                    // Check system preference
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                  }
+
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {
+                  // localStorage might not be available
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
-        <SkipLink />
-        <Navigation />
-        {children}
+        <ThemeProvider>
+          <SkipLink />
+          <Navigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import styles from './Navigation.module.css';
 
 /**
@@ -73,6 +74,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           >
             Blog
           </Link>
+          <ThemeToggle />
         </div>
 
         {/* Mobile Menu Button */}
@@ -118,6 +120,9 @@ export default function Navigation({ className = '' }: NavigationProps) {
           >
             Blog
           </Link>
+          <div className={styles.mobileThemeToggle}>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
 

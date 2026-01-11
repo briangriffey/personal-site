@@ -197,8 +197,17 @@
 /* Active Mobile Link */
 .mobileNavLink.active {
   color: var(--color-primary-600);
-  background-color: var(--color-primary-50);
+  background-color: var(--color-muted);
   font-weight: var(--font-weight-semibold);
+}
+
+/* Mobile Theme Toggle */
+.mobileThemeToggle {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--spacing-6);
+  margin-top: var(--spacing-4);
+  border-top: 1px solid var(--color-border);
 }
 
 /* ============================================
@@ -211,7 +220,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--overlay-color);
   z-index: var(--z-index-sticky);
   animation: fadeIn var(--transition-normal);
 }

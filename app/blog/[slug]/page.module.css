@@ -59,16 +59,17 @@
   padding: var(--spacing-1) var(--spacing-3);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
-  background-color: rgba(var(--color-primary-rgb), 0.1);
-  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  color: var(--color-primary-600);
+  background-color: var(--color-muted);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
 }
 
 .tag:hover {
-  background-color: rgba(var(--color-primary-rgb), 0.15);
-  border-color: rgba(var(--color-primary-rgb), 0.3);
+  background-color: var(--color-muted);
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-500);
 }
 
 /* Post Content */
@@ -96,7 +97,7 @@
   gap: var(--spacing-2);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
+  color: var(--color-primary-600);
   text-decoration: none;
   transition: all 0.2s ease;
   padding: var(--spacing-2) var(--spacing-4);
@@ -104,12 +105,12 @@
 }
 
 .backLink:hover {
-  background-color: rgba(var(--color-primary-rgb), 0.1);
+  background-color: var(--color-muted);
   transform: translateX(-4px);
 }
 
 .backLink:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
 }
 

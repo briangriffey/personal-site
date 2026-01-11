@@ -40,7 +40,7 @@
 
 .card-outlined:hover {
   border-color: var(--color-primary-400);
-  background-color: var(--color-primary-50);
+  background-color: var(--color-muted);
 }
 
 /* Elevated Card - Prominent shadow for emphasis */
@@ -122,7 +122,7 @@
 
 .card-header-subtitle {
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  color: var(--color-muted-foreground);
   line-height: var(--line-height-normal);
 }
 
@@ -134,7 +134,7 @@
 
 .card-body p {
   line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
+  color: var(--color-muted-foreground);
 }
 
 .card-body p + p {

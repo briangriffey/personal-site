@@ -1,0 +1,164 @@
+/* ============================================
+   THEME TOGGLE COMPONENT STYLES
+   ============================================ */
+
+/**
+ * Theme Toggle Button
+ *
+ * An accessible button that cycles between light, dark, and system theme modes.
+ * Features smooth icon transitions, proper focus states, and respects user motion preferences.
+ */
+
+/* Base Toggle Button */
+.themeToggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  user-select: none;
+
+  /* Prevent text selection on double-click */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Hover state */
+.themeToggle:hover {
+  background-color: var(--color-muted);
+  border-color: var(--color-primary-500);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Active state */
+.themeToggle:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Focus state - keyboard accessibility */
+.themeToggle:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2);
+}
+
+/* Icon wrapper for transitions */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* Icon styles */
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-primary);
+  transition: all var(--transition-normal);
+}
+
+/* Icon animations on theme change */
+@keyframes fadeInRotate {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.icon {
+  animation: fadeInRotate 0.3s ease-out;
+}
+
+/* Hover effects on icon */
+.themeToggle:hover .icon {
+  color: var(--color-primary-600);
+  transform: scale(1.1);
+}
+
+.themeToggle:active .icon {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/**
+ * Respect user's motion preferences
+ * Disable all animations and transitions for users who prefer reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .themeToggle {
+    transition: none;
+  }
+
+  .themeToggle:hover,
+  .themeToggle:active {
+    transform: none;
+  }
+
+  .icon {
+    animation: none;
+    transition: none;
+  }
+
+  .themeToggle:hover .icon,
+  .themeToggle:active .icon {
+    transform: none;
+  }
+}
+
+/**
+ * Ensure minimum touch target size for mobile accessibility
+ * WCAG 2.1 Level AAA: 44x44 pixels minimum
+ */
+@media (max-width: 639px) {
+  .themeToggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/**
+ * Tablet and desktop - slightly larger for easier clicking
+ */
+@media (min-width: 640px) {
+  .themeToggle {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/**
+ * High contrast mode support
+ * Ensure the toggle is visible in Windows high contrast mode
+ */
+@media (prefers-contrast: high) {
+  .themeToggle {
+    border-width: 3px;
+  }
+
+  .themeToggle:focus-visible {
+    outline-width: 3px;
+  }
+}
