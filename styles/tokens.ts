@@ -48,21 +48,21 @@ export type SemanticColors = {
 };
 
 /**
- * Primary Colors (Cyan-Blue)
- * Main brand color - vibrant, modern, tech-forward
+ * Primary Colors (Pink-Coral)
+ * Main brand color - vibrant, warm, energetic
  * USE FOR: Primary buttons, main links, brand elements, key CTAs
  */
 export const primary: ColorPalette = {
-  50: '#ecfeff',
-  100: '#cffafe',
-  200: '#a5f3fc',
-  300: '#67e8f9',
-  400: '#22d3ee',
-  500: '#06b6d4',
-  600: '#0891b2',
-  700: '#0e7490',
-  800: '#155e75',
-  900: '#164e63',
+  50: '#fef2f4',
+  100: '#fde6ea',
+  200: '#fcd0d8',
+  300: '#D97789',
+  400: '#f86b85',
+  500: '#F24B6A',
+  600: '#e63358',
+  700: '#c22648',
+  800: '#a12040',
+  900: '#732231',
 } as const;
 
 /**
@@ -84,21 +84,21 @@ export const secondary: ColorPalette = {
 } as const;
 
 /**
- * Accent Colors (Warm Amber-Coral)
- * Warm accent for visual interest, CTAs, and highlighting
- * USE FOR: Call-to-action buttons, highlights, important notices, warm accents
+ * Accent Colors (Teal-Cyan Contrasted)
+ * Cool contrasted accent for visual interest and highlighting
+ * USE FOR: Call-to-action buttons, highlights, important notices, contrasted elements
  */
 export const accent: ColorPalette = {
-  50: '#fff7ed',
-  100: '#ffedd5',
-  200: '#fed7aa',
-  300: '#fdba74',
-  400: '#fb923c',
-  500: '#f97316',
-  600: '#ea580c',
-  700: '#c2410c',
-  800: '#9a3412',
-  900: '#7c2d12',
+  50: '#f0f9fa',
+  100: '#d9f0f3',
+  200: '#b3e1e7',
+  300: '#7dc9d4',
+  400: '#3da8b8',
+  500: '#0B758C',
+  600: '#0a6579',
+  700: '#095465',
+  800: '#084452',
+  900: '#073843',
 } as const;
 
 /**
@@ -191,16 +191,34 @@ export const neutral: ColorPalette = {
 } as const;
 
 /**
- * Semantic Colors
+ * Semantic Colors - Light Theme
+ * Application-wide color roles for light mode
+ */
+export const semanticLight: SemanticColors = {
+  background: '#F2EBDC',
+  foreground: neutral[900],
+  muted: '#e5dcc8',
+  mutedForeground: neutral[600],
+  border: '#d9cdb5',
+} as const;
+
+/**
+ * Semantic Colors - Dark Theme
+ * Application-wide color roles for dark mode
+ */
+export const semanticDark: SemanticColors = {
+  background: '#132426',
+  foreground: neutral[50],
+  muted: '#1e3a3d',
+  mutedForeground: '#d1fae5',
+  border: '#2a4a4d',
+} as const;
+
+/**
+ * Semantic Colors (Default - Light Theme)
  * Application-wide color roles (referenced from other palettes)
  */
-export const semantic: SemanticColors = {
-  background: '#ffffff',
-  foreground: neutral[900],
-  muted: neutral[100],
-  mutedForeground: neutral[600],
-  border: neutral[200],
-} as const;
+export const semantic: SemanticColors = semanticLight;
 
 /**
  * All color palettes combined
@@ -215,6 +233,8 @@ export const colors = {
   info,
   neutral,
   semantic,
+  semanticLight,
+  semanticDark,
 } as const;
 
 /* ============================================

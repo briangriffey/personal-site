@@ -68,21 +68,21 @@
    ============================================ */
 
 :root {
-  /* Colors - Primary (Cyan-Blue)
-     Main brand color - vibrant, modern, tech-forward
+  /* Colors - Primary (Pink-Coral)
+     Main brand color - vibrant, warm, energetic
      USE FOR: Primary buttons, main links, brand elements, key CTAs */
-  --color-primary-50: #ecfeff;
-  --color-primary-100: #cffafe;
-  --color-primary-200: #a5f3fc;
-  --color-primary-300: #67e8f9;
-  --color-primary-400: #22d3ee;
-  --color-primary-500: #06b6d4;
-  --color-primary-600: #0891b2;
-  --color-primary-700: #0e7490;
-  --color-primary-800: #155e75;
-  --color-primary-900: #164e63;
-  --color-primary: #0070f3;
-  --color-primary-hover: #0051cc;
+  --color-primary-50: #fef2f4;
+  --color-primary-100: #fde6ea;
+  --color-primary-200: #fcd0d8;
+  --color-primary-300: #D97789;
+  --color-primary-400: #f86b85;
+  --color-primary-500: #F24B6A;
+  --color-primary-600: #e63358;
+  --color-primary-700: #c22648;
+  --color-primary-800: #a12040;
+  --color-primary-900: #732231;
+  --color-primary: #F24B6A;
+  --color-primary-hover: #e63358;
 
   /* Colors - Secondary (Purple)
      Complementary cool tone for accents and secondary actions
@@ -97,20 +97,24 @@
   --color-secondary-700: #7e22ce;
   --color-secondary-800: #6b21a8;
   --color-secondary-900: #581c87;
+  --color-secondary: #a855f7;
+  --color-secondary-hover: #9333ea;
 
-  /* Colors - Accent (Warm Amber-Coral)
-     Warm accent for visual interest, CTAs, and highlighting
-     USE FOR: Call-to-action buttons, highlights, important notices, warm accents */
-  --color-accent-50: #fff7ed;
-  --color-accent-100: #ffedd5;
-  --color-accent-200: #fed7aa;
-  --color-accent-300: #fdba74;
-  --color-accent-400: #fb923c;
-  --color-accent-500: #f97316;
-  --color-accent-600: #ea580c;
-  --color-accent-700: #c2410c;
-  --color-accent-800: #9a3412;
-  --color-accent-900: #7c2d12;
+  /* Colors - Accent (Teal-Cyan Contrasted)
+     Cool contrasted accent for visual interest and highlighting
+     USE FOR: Call-to-action buttons, highlights, important notices, contrasted elements */
+  --color-accent-50: #f0f9fa;
+  --color-accent-100: #d9f0f3;
+  --color-accent-200: #b3e1e7;
+  --color-accent-300: #7dc9d4;
+  --color-accent-400: #3da8b8;
+  --color-accent-500: #0B758C;
+  --color-accent-600: #0a6579;
+  --color-accent-700: #095465;
+  --color-accent-800: #084452;
+  --color-accent-900: #073843;
+  --color-accent: #0B758C;
+  --color-accent-hover: #0a6579;
 
   /* Colors - Success (Emerald Green)
      Semantic color for positive feedback, confirmations, and success states
@@ -125,6 +129,8 @@
   --color-success-700: #047857;
   --color-success-800: #065f46;
   --color-success-900: #064e3b;
+  --color-success: #10b981;
+  --color-success-hover: #059669;
 
   /* Colors - Warning (Amber)
      Semantic color for warnings, caution states, and pending actions
@@ -139,6 +145,8 @@
   --color-warning-700: #b45309;
   --color-warning-800: #92400e;
   --color-warning-900: #78350f;
+  --color-warning: #f59e0b;
+  --color-warning-hover: #d97706;
 
   /* Colors - Error (Red)
      Semantic color for errors, validation failures, and destructive actions
@@ -153,6 +161,8 @@
   --color-error-700: #b91c1c;
   --color-error-800: #991b1b;
   --color-error-900: #7f1d1d;
+  --color-error: #ef4444;
+  --color-error-hover: #dc2626;
 
   /* Colors - Info (Sky Blue)
      Semantic color for informational messages, tips, and neutral notifications
@@ -167,6 +177,8 @@
   --color-info-700: #0369a1;
   --color-info-800: #075985;
   --color-info-900: #0c4a6e;
+  --color-info: #0ea5e9;
+  --color-info-hover: #0284c7;
 
   /* Colors - Neutral */
   --color-neutral-50: #fafafa;
@@ -183,16 +195,16 @@
   /* Semantic Colors - Application-wide color roles
      These colors adapt automatically in dark mode
      USE THESE for consistent theming across light/dark modes */
-  --color-background: #ffffff;
-  --color-background-hover: #f8f9fa;
+  --color-background: #F2EBDC;
+  --color-background-hover: #eae0cc;
   --color-foreground: var(--color-neutral-900);
-  --color-text-primary: #111;
-  --color-text-secondary: #333;
-  --color-text-muted: #666;
-  --color-muted: var(--color-neutral-100);
+  --color-text-primary: #1a1410;
+  --color-text-secondary: #3d3429;
+  --color-text-muted: #6b5d4f;
+  --color-muted: #e5dcc8;
   --color-muted-foreground: var(--color-neutral-600);
-  --color-border: #eaeaea;
-  --color-border-hover: var(--color-neutral-300);
+  --color-border: #d9cdb5;
+  --color-border-hover: #cec0a8;
 
   /* Typography - Font Families
      Sans: Inter (via next/font) with system font fallbacks
@@ -380,27 +392,43 @@
 
 [data-theme='dark'] {
   /* Semantic Colors - Dark Mode
-     Inverted color scheme for comfortable dark mode viewing */
+     Dark teal-green theme for comfortable viewing with vibrant green accents */
 
-  /* Background: Deep dark for reduced eye strain */
-  --color-background: #0a0a0a;
-  --color-background-hover: #1a1a1a;
+  /* Colors - Primary (Green) - Dark Mode Override
+     Vibrant green for dark theme - energetic, fresh, modern
+     USE FOR: Primary buttons, main links, brand elements, key CTAs */
+  --color-primary-50: #f0fdf5;
+  --color-primary-100: #dcfce8;
+  --color-primary-200: #bbf7d1;
+  --color-primary-300: #05F26C;
+  --color-primary-400: #22c55e;
+  --color-primary-500: #03A64A;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #0A5926;
+  --color-primary: #03A64A;
+  --color-primary-hover: #05F26C;
+
+  /* Background: Deep dark teal for reduced eye strain */
+  --color-background: #132426;
+  --color-background-hover: #1a3234;
 
   /* Foreground: Very light for maximum contrast */
   --color-foreground: var(--color-neutral-50);
 
-  /* Text Colors: Light grays for excellent readability on dark backgrounds */
-  --color-text-primary: #fafafa;    /* Very light - primary content */
-  --color-text-secondary: #e5e5e5;  /* Light gray - secondary content */
-  --color-text-muted: #a3a3a3;      /* Medium gray - muted/tertiary content */
+  /* Text Colors: Light colors for excellent readability on dark teal background */
+  --color-text-primary: #f0fdf5;    /* Very light green tint - primary content */
+  --color-text-secondary: #dcfce8;  /* Light green tint - secondary content */
+  --color-text-muted: #a7f3d0;      /* Soft green tint - muted/tertiary content */
 
-  /* Muted Colors: Adjusted for dark backgrounds */
-  --color-muted: #1f1f1f;           /* Dark muted background */
-  --color-muted-foreground: #d4d4d4; /* Light muted text */
+  /* Muted Colors: Adjusted for dark teal background */
+  --color-muted: #1e3a3d;           /* Dark muted background with teal tint */
+  --color-muted-foreground: #d1fae5; /* Light green muted text */
 
-  /* Borders: Subtle separation without harshness */
-  --color-border: #2a2a2a;
-  --color-border-hover: #3a3a3a;
+  /* Borders: Subtle separation with teal undertones */
+  --color-border: #2a4a4d;
+  --color-border-hover: #3a5a5d;
 
   /* Shadows: Enhanced for dark mode - lighter shadows for better visibility on dark backgrounds */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
@@ -409,12 +437,11 @@
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.5);
 
   /* Overlay Colors: Darker overlay for dark mode */
-  --overlay-color: rgba(0, 0, 0, 0.7);
+  --overlay-color: rgba(19, 36, 38, 0.8);
 
-  /* Note: Brand colors (Primary, Secondary, Accent, Success, Warning, Error, Info)
-     and their shade ranges (50-900) remain unchanged to maintain brand consistency
-     across light and dark themes. These colors are vibrant enough to work well
-     on both light and dark backgrounds. */
+  /* Note: Other brand colors (Secondary, Accent, Success, Warning, Error, Info)
+     and their shade ranges (50-900) remain unchanged to maintain consistency.
+     Primary color palette is overridden to match the dark theme green palette. */
 }
 
 /* ============================================

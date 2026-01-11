@@ -159,7 +159,7 @@
   right: 0;
   bottom: 0;
   /* Use radial dot pattern instead of lines for a more modern look */
-  background-image: radial-gradient(circle, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--color-primary-500) 8%, transparent) 1px, transparent 1px);
   background-size: 40px 40px;
   opacity: 1;
 }
@@ -176,9 +176,9 @@
   /* Vibrant multi-color glow using all brand colors */
   background: radial-gradient(
     circle,
-    rgba(6, 182, 212, 0.15) 0%,
-    rgba(168, 85, 247, 0.1) 30%,
-    rgba(249, 115, 22, 0.08) 60%,
+    color-mix(in srgb, var(--color-primary-500) 15%, transparent) 0%,
+    color-mix(in srgb, var(--color-secondary-500) 10%, transparent) 30%,
+    color-mix(in srgb, var(--color-accent-500) 8%, transparent) 60%,
     transparent 100%
   );
   animation: pulseGlow 10s ease-in-out infinite;
@@ -194,7 +194,7 @@
   filter: blur(2px);
   background: radial-gradient(
     circle at 30% 30%,
-    rgba(255, 255, 255, 0.3),
+    color-mix(in srgb, var(--color-foreground) 30%, transparent),
     transparent
   );
 }
@@ -204,7 +204,7 @@
   opacity: 0.1;
 }
 
-/* Primary colored circle (cyan-blue) - larger and more prominent */
+/* Primary colored circle - larger and more prominent */
 .decorativeCircle:nth-child(2) {
   width: 300px;
   height: 300px;
@@ -217,7 +217,7 @@
   top: 10%;
   left: -5%;
   animation-delay: 0s;
-  box-shadow: 0 0 60px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 60px color-mix(in srgb, var(--color-primary-500) 30%, transparent);
 }
 
 /* Secondary colored circle (purple) - accent placement */
@@ -233,7 +233,7 @@
   bottom: 15%;
   right: -3%;
   animation-delay: 2s;
-  box-shadow: 0 0 50px rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 50px color-mix(in srgb, var(--color-secondary-500) 30%, transparent);
 }
 
 /* Add a third decorative circle with accent color */
@@ -249,7 +249,7 @@
   top: 60%;
   left: 5%;
   animation-delay: 4s;
-  box-shadow: 0 0 55px rgba(249, 115, 22, 0.25);
+  box-shadow: 0 0 55px color-mix(in srgb, var(--color-accent-500) 25%, transparent);
 }
 
 /* ============================================
