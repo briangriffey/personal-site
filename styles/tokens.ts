@@ -191,16 +191,34 @@ export const neutral: ColorPalette = {
 } as const;
 
 /**
- * Semantic Colors
- * Application-wide color roles (referenced from other palettes)
+ * Semantic Colors - Light Theme
+ * Application-wide color roles for light mode
  */
-export const semantic: SemanticColors = {
+export const semanticLight: SemanticColors = {
   background: '#F2EBDC',
   foreground: neutral[900],
   muted: '#e5dcc8',
   mutedForeground: neutral[600],
   border: '#d9cdb5',
 } as const;
+
+/**
+ * Semantic Colors - Dark Theme
+ * Application-wide color roles for dark mode
+ */
+export const semanticDark: SemanticColors = {
+  background: '#132426',
+  foreground: neutral[50],
+  muted: '#1e3a3d',
+  mutedForeground: '#d1fae5',
+  border: '#2a4a4d',
+} as const;
+
+/**
+ * Semantic Colors (Default - Light Theme)
+ * Application-wide color roles (referenced from other palettes)
+ */
+export const semantic: SemanticColors = semanticLight;
 
 /**
  * All color palettes combined
@@ -215,6 +233,8 @@ export const colors = {
   info,
   neutral,
   semantic,
+  semanticLight,
+  semanticDark,
 } as const;
 
 /* ============================================
