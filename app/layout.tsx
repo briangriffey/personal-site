@@ -1,15 +1,40 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import SkipLink from '@/components/SkipLink/SkipLink';
 import Navigation from '@/components/Navigation/Navigation';
 import { ThemeProvider } from '@/components/ThemeProvider/ThemeProvider';
 import './globals.css';
 
-// Configure Inter font with optimal loading
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-inter',
+// Configure Noto Sans font with optimal loading
+const notoSans = localFont({
+  src: [
+    {
+      path: '../public/fonts/noto-sans-latin-400-normal.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/noto-sans-latin-500-normal.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/noto-sans-latin-600-normal.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/noto-sans-latin-700-normal.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/noto-sans-latin-800-normal.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-noto-sans',
   display: 'swap',
   preload: true,
   fallback: [
@@ -69,7 +94,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={notoSans.className}>
         <ThemeProvider>
           <SkipLink />
           <Navigation />
