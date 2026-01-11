@@ -380,27 +380,43 @@
 
 [data-theme='dark'] {
   /* Semantic Colors - Dark Mode
-     Inverted color scheme for comfortable dark mode viewing */
+     Dark teal-green theme for comfortable viewing with vibrant green accents */
 
-  /* Background: Deep dark for reduced eye strain */
-  --color-background: #0a0a0a;
-  --color-background-hover: #1a1a1a;
+  /* Colors - Primary (Green) - Dark Mode Override
+     Vibrant green for dark theme - energetic, fresh, modern
+     USE FOR: Primary buttons, main links, brand elements, key CTAs */
+  --color-primary-50: #f0fdf5;
+  --color-primary-100: #dcfce8;
+  --color-primary-200: #bbf7d1;
+  --color-primary-300: #05F26C;
+  --color-primary-400: #22c55e;
+  --color-primary-500: #03A64A;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #0A5926;
+  --color-primary: #03A64A;
+  --color-primary-hover: #05F26C;
+
+  /* Background: Deep dark teal for reduced eye strain */
+  --color-background: #132426;
+  --color-background-hover: #1a3234;
 
   /* Foreground: Very light for maximum contrast */
   --color-foreground: var(--color-neutral-50);
 
-  /* Text Colors: Light grays for excellent readability on dark backgrounds */
-  --color-text-primary: #fafafa;    /* Very light - primary content */
-  --color-text-secondary: #e5e5e5;  /* Light gray - secondary content */
-  --color-text-muted: #a3a3a3;      /* Medium gray - muted/tertiary content */
+  /* Text Colors: Light colors for excellent readability on dark teal background */
+  --color-text-primary: #f0fdf5;    /* Very light green tint - primary content */
+  --color-text-secondary: #dcfce8;  /* Light green tint - secondary content */
+  --color-text-muted: #a7f3d0;      /* Soft green tint - muted/tertiary content */
 
-  /* Muted Colors: Adjusted for dark backgrounds */
-  --color-muted: #1f1f1f;           /* Dark muted background */
-  --color-muted-foreground: #d4d4d4; /* Light muted text */
+  /* Muted Colors: Adjusted for dark teal background */
+  --color-muted: #1e3a3d;           /* Dark muted background with teal tint */
+  --color-muted-foreground: #d1fae5; /* Light green muted text */
 
-  /* Borders: Subtle separation without harshness */
-  --color-border: #2a2a2a;
-  --color-border-hover: #3a3a3a;
+  /* Borders: Subtle separation with teal undertones */
+  --color-border: #2a4a4d;
+  --color-border-hover: #3a5a5d;
 
   /* Shadows: Enhanced for dark mode - lighter shadows for better visibility on dark backgrounds */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
@@ -409,12 +425,11 @@
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.5);
 
   /* Overlay Colors: Darker overlay for dark mode */
-  --overlay-color: rgba(0, 0, 0, 0.7);
+  --overlay-color: rgba(19, 36, 38, 0.8);
 
-  /* Note: Brand colors (Primary, Secondary, Accent, Success, Warning, Error, Info)
-     and their shade ranges (50-900) remain unchanged to maintain brand consistency
-     across light and dark themes. These colors are vibrant enough to work well
-     on both light and dark backgrounds. */
+  /* Note: Other brand colors (Secondary, Accent, Success, Warning, Error, Info)
+     and their shade ranges (50-900) remain unchanged to maintain consistency.
+     Primary color palette is overridden to match the dark theme green palette. */
 }
 
 /* ============================================
