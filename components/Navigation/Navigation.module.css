@@ -197,7 +197,7 @@
 /* Active Mobile Link */
 .mobileNavLink.active {
   color: var(--color-primary-600);
-  background-color: var(--color-primary-50);
+  background-color: var(--color-muted);
   font-weight: var(--font-weight-semibold);
 }
 

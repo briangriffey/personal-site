@@ -10,7 +10,7 @@
   z-index: var(--z-index-tooltip);
   padding: var(--spacing-4) var(--spacing-6);
   background-color: var(--color-primary-600);
-  color: #ffffff;
+  color: var(--color-neutral-50);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   text-decoration: none;

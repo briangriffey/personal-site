@@ -123,8 +123,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.6;
-  /* Use vibrant multi-color gradient with all brand colors */
+  opacity: 0.3;
+  /* Use vibrant multi-color gradient with all brand colors - opacity adjusted for dark mode compatibility */
   background: linear-gradient(
     135deg,
     var(--color-primary-100) 0%,
