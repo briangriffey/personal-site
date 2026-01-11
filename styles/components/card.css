@@ -69,7 +69,7 @@
   border-color: var(--color-primary-400);
   box-shadow:
     var(--shadow-xl),
-    0 0 30px 0 rgba(6, 182, 212, 0.15);
+    0 0 30px 0 color-mix(in srgb, var(--color-primary-500) 15%, transparent);
   transform: translateY(-6px) scale(1.02);
 }
 
@@ -318,7 +318,7 @@
   outline-offset: 2px;
   box-shadow:
     var(--shadow-xl),
-    0 0 0 4px rgba(6, 182, 212, 0.2);
+    0 0 0 4px color-mix(in srgb, var(--color-primary-500) 20%, transparent);
 }
 
 /* Ensure sufficient contrast for text content */
