@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from './CauseCard.module.css';
 
@@ -37,6 +39,8 @@ export interface CauseCardProps {
  * Links open in a new tab with proper security attributes.
  */
 export default function CauseCard({ cause, className = '' }: CauseCardProps) {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <article
       className={`${styles.card} ${className}`}
@@ -44,13 +48,22 @@ export default function CauseCard({ cause, className = '' }: CauseCardProps) {
     >
       {/* Cause Image */}
       <div className={styles.imageContainer}>
-        <Image
-          src={cause.imageUrl}
-          alt={`${cause.title}`}
-          fill
-          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-          className={styles.image}
-        />
+        {!imageError ? (
+          <Image
+            src={cause.imageUrl}
+            alt={cause.title}
+            fill
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            className={styles.image}
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder} aria-hidden="true">
+            <span className={styles.placeholderIcon}>
+              {cause.title.charAt(0).toUpperCase()}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Card Content */}
