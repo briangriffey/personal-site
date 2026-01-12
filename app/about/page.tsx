@@ -12,18 +12,13 @@ export default function About() {
       maxWidth: "800px",
       margin: "0 auto",
       lineHeight: "1.6",
-      color: "#333"
     }}>
       <section>
         <h1 style={{
-          fontSize: "2.5rem",
-          fontWeight: "700",
           marginBottom: "0.5rem",
-          color: "#1a1a1a",
           letterSpacing: "-0.02em"
         }}>About</h1>
         <p style={{
-          fontSize: "1.2rem",
           marginBottom: "3rem"
         }}>
           Professional background, expertise, and current focus
@@ -35,14 +30,14 @@ export default function About() {
           paddingBottom: "0.5rem",
           borderBottom: "2px solid #e5e7eb"
         }}>Professional Background</h2>
-        <p style={{ marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "1rem" }}>
           I'm Brian Griffey, a software engineer who has spent my career at the
           intersection of building products and solving complex technical challenges.
           My journey in technology has been driven by a deep curiosity about how systems
           work and a passion for creating tools that make development more efficient
           and enjoyable.
         </p>
-        <p style={{ marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "1rem" }}>
           Throughout my career, I've worked across the full stack—from backend systems
           and APIs to frontend interfaces and user experiences. This breadth of experience
           has taught me that the most effective solutions come from understanding the entire
@@ -50,7 +45,7 @@ export default function About() {
           to production systems serving thousands of users, and each project has reinforced
           the importance of thoughtful architecture and clean, maintainable code.
         </p>
-        <p style={{ marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "1rem" }}>
           More recently, my focus has shifted toward exploring how AI and machine learning
           can fundamentally transform the way we build software. I'm particularly interested
           in AI-assisted development workflows and the potential for tools like Claude Code
@@ -66,7 +61,7 @@ export default function About() {
           paddingBottom: "0.5rem",
           borderBottom: "2px solid #e5e7eb"
         }}>Expertise Areas</h2>
-        <p style={{ marginBottom: "2rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "2rem" }}>
           My technical expertise has been shaped by years of building real-world systems and
           solving practical problems. Rather than chasing every new framework, I've focused
           on developing deep understanding in areas that consistently deliver value.
@@ -78,7 +73,7 @@ export default function About() {
         }}>
           Full-Stack Development
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           I build complete applications from database to UI. This includes designing REST APIs,
           managing state and data flow, implementing authentication and authorization, and creating
           intuitive user interfaces. My experience spans JavaScript/TypeScript ecosystems (React,
@@ -88,11 +83,10 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           System Architecture & Design
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           I've learned that good architecture isn't about complexity—it's about making systems
           that are easy to understand, modify, and scale. I focus on designing clean interfaces
           between components, managing dependencies thoughtfully, and building systems that can
@@ -102,11 +96,10 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           AI-Assisted Development
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           As AI tools have evolved, I've become deeply invested in understanding how they can
           enhance the development process. I work extensively with Claude Code, exploring patterns
           for multi-agent workflows, automated testing strategies, and code generation techniques.
@@ -116,11 +109,10 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           Developer Experience & Tooling
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           I believe that good tools make good developers better. I've built internal tools,
           automated workflows, and development environments that reduce friction and increase
           productivity. This includes everything from setting up build pipelines and testing
@@ -135,7 +127,7 @@ export default function About() {
           paddingBottom: "0.5rem",
           borderBottom: "2px solid #e5e7eb"
         }}>Current Focus: AI-Assisted Development</h2>
-        <p style={{ marginBottom: "2rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "2rem" }}>
           Right now, I'm deeply immersed in exploring how AI can fundamentally change the way
           we build software. This isn't about replacing developers—it's about discovering new
           workflows that amplify human creativity and expertise while handling the repetitive,
@@ -144,18 +136,17 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           The Claude Code Methodology
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           I work extensively with Claude Code, Anthropic's AI-powered development tool. What
           fascinates me most is the concept of multi-agent workflows—where specialized AI agents
           handle different aspects of development (planning, implementation, testing, review).
           This approach mirrors how human development teams work, with each agent bringing
           specific expertise to the task at hand.
         </p>
-        <p style={{ marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "1rem" }}>
           The key insight I've gained is that effective AI-assisted development requires a
           different mindset. It's not about writing detailed specifications and letting the AI
           execute them blindly. Instead, it's an iterative dialogue—providing context, setting
@@ -166,24 +157,23 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           Practical Application & Experimentation
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           This very website is a living experiment in AI-assisted development. I'm using it as
           a testbed to explore patterns that work well with Claude Code—modular architecture,
           clear separation of concerns, and documentation-driven development. Every feature is
           built using AI agents, and I'm documenting what works, what doesn't, and what patterns
           emerge as best practices.
         </p>
-        <p style={{ marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "1rem" }}>
           I'm particularly interested in solving the "knowledge continuity" problem: how do we
           ensure that AI agents maintain context across sessions? How do we capture tribal
           knowledge and make it accessible to future agents? These are the questions that drive
           my current work, and this website serves as both the laboratory and the case study.
         </p>
-        <p style={{ marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "1rem" }}>
           Beyond personal projects, I'm exploring how these methodologies can scale to team
           environments. What does code review look like when AI generates the initial implementation?
           How do we maintain code quality standards? What new types of testing and verification
@@ -198,7 +188,7 @@ export default function About() {
           paddingBottom: "0.5rem",
           borderBottom: "2px solid #e5e7eb"
         }}>Professional Values & Approach</h2>
-        <p style={{ marginBottom: "2rem", fontSize: "1.05rem" }}>
+        <p style={{ marginBottom: "2rem" }}>
           Beyond technical skills, I believe that how we approach our work matters as much as
           what we build. Over the years, I've developed a set of core values that guide my
           professional practice and shape how I collaborate with others.
@@ -206,11 +196,10 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           Clarity Over Cleverness
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           The best code isn't the most clever—it's the code that the next developer (or your
           future self) can understand at 2 AM during an outage. I prioritize readability,
           clear naming, and straightforward solutions over clever tricks. Code is read far
@@ -219,11 +208,10 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           Pragmatism Over Perfection
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           I believe in shipping working software and iterating based on real feedback. Perfect
           is the enemy of done, and the best way to validate assumptions is to get something
           functional in front of users quickly. This doesn't mean sacrificing quality—it means
@@ -234,11 +222,10 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           Collaboration & Communication
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           The best code is code that other people can understand and build upon. I believe in
           clear documentation, meaningful variable names, and architecture that reveals its intent.
           I value open communication, asking questions early when requirements are unclear, and
@@ -248,11 +235,10 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           Learning in Public
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           I believe in sharing knowledge and learning in public. This website is part of that
           philosophy—documenting my experiments with AI-assisted development, sharing insights
           about what works and what doesn't, and contributing to the broader conversation about
@@ -263,11 +249,10 @@ export default function About() {
 
         <h3 style={{
           marginTop: "2rem",
-          fontSize: "1.3rem",
         }}>
           Quality as an Investment
         </h3>
-        <p style={{ marginTop: "0.75rem", marginBottom: "1rem", fontSize: "1.05rem" }}>
+        <p style={{ marginTop: "0.75rem", marginBottom: "1rem" }}>
           While I value moving quickly and iterating, I believe that rushing to ship broken code
           ultimately wastes more time than it saves. Good architecture and clean code aren't
           luxuries—they're investments that pay dividends over time. I focus on writing code
