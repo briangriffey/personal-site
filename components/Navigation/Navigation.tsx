@@ -88,6 +88,13 @@ export default function Navigation({ className = '' }: NavigationProps) {
           >
             Contact
           </Link>
+          <Link
+            href="/causes"
+            className={`${styles.navLink} ${isActive('/causes') ? styles.active : ''}`}
+            aria-current={isActive('/causes') ? 'page' : undefined}
+          >
+            Causes
+          </Link>
           <ThemeToggle />
         </div>
 
@@ -133,6 +140,14 @@ export default function Navigation({ className = '' }: NavigationProps) {
             aria-current={isActive('/blog') ? 'page' : undefined}
           >
             Blog
+          </Link>
+          <Link
+            href="/causes"
+            className={`${styles.mobileNavLink} ${isActive('/causes') ? styles.active : ''}`}
+            onClick={closeMobileMenu}
+            aria-current={isActive('/causes') ? 'page' : undefined}
+          >
+            Causes
           </Link>
           <div className={styles.mobileThemeToggle}>
             <ThemeToggle />
