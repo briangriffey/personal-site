@@ -1,32 +1,26 @@
-# Stage 1: Build the Next.js application
+# Build stage
 FROM node:20-alpine AS builder
-
-# Set working directory
 WORKDIR /app
 
-# Copy package files
+# Install dependencies
 COPY package*.json ./
-
-# Install dependencies with clean install
 RUN npm ci
 
-# Copy source files
+# Build application
 COPY . .
-
-# Build the Next.js static export
 RUN npm run build
 
-# Stage 2: Serve with nginx
-FROM nginx:alpine
+# Production stage
+FROM node:20-alpine
+WORKDIR /app
 
-# Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy standalone build
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
 
-# Copy static files from builder stage
-COPY --from=builder /app/out /usr/share/nginx/html
+# Expose port (Railway will set PORT env var)
+EXPOSE 3000
 
-# Expose port 80 for Railway
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start Next.js server
+CMD ["node", "server.js"]

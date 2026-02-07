@@ -3,7 +3,7 @@
 ## Technology
 It's completely written and maintained by Claude Code. It's a playground for me to try new multi-agent strategies and build tools.
 
-This web site is built on NextJS 15 and deployed to Railway. It uses static site generation for all of its content.
+This web site is built on NextJS 15 and deployed to Railway using standalone mode for optimized production deployment.
 
 ## Development
 
@@ -20,13 +20,13 @@ Visit `http://localhost:3000` to view the site.
 npm run build
 ```
 
-The static site will be generated in the `out/` directory.
+The standalone build will be generated in the `.next/standalone/` directory.
 
 ## Docker Deployment
 
 This project uses Docker for production deployment to Railway with a multi-stage build:
 - **Build stage**: Node.js 20 Alpine for compiling Next.js
-- **Runtime stage**: nginx Alpine for serving static files (~94MB total)
+- **Runtime stage**: Node.js 20 Alpine running Next.js standalone server
 
 ### Building Docker Image
 ```bash
@@ -35,28 +35,24 @@ docker build -t personalsite .
 
 ### Running Docker Container Locally
 ```bash
-# Run on port 8080
-docker run -p 8080:80 personalsite
+# Run on port 3000
+docker run -p 3000:3000 personalsite
 
-# Visit http://localhost:8080
+# Visit http://localhost:3000
 ```
 
 ### Docker Configuration Files
 - `Dockerfile` - Multi-stage build configuration
 - `.dockerignore` - Excludes unnecessary files from build context
-- `nginx.conf` - Production nginx configuration with gzip, caching, and security headers
-- `railway.json` - Railway deployment configuration
 
-### Health Check
-The container includes a health check endpoint at `/health` that returns `OK`.
 
 ## Railway Deployment
 
 Railway automatically detects and builds from the `Dockerfile`. The build process:
 1. Installs dependencies with `npm ci`
-2. Builds static site with `npm run build`
-3. Copies static files to nginx
-4. Serves on port 80 (Railway maps to public URL)
+2. Builds Next.js application with `npm run build` in standalone mode
+3. Copies standalone build to production image
+4. Serves with Next.js server on port 3000 (Railway maps to public URL)
 
 ### Environment Variables
 Currently no environment variables are required. For future additions, update:
@@ -64,12 +60,12 @@ Currently no environment variables are required. For future additions, update:
 - `railway.json` for deployment configuration
 
 ### Port Configuration
-- Container exposes port 80 (nginx default)
+- Container exposes port 3000 (Next.js default)
 - Railway automatically maps to public HTTPS endpoint
-- Local testing uses port 8080 (`-p 8080:80`)
+- Local testing: `docker run -p 3000:3000 <image>`
 
 ## Build Optimizations
 - ESLint and TypeScript checking disabled during Docker builds (run in CI/CD instead)
-- Multi-stage build reduces final image size to ~94MB
-- nginx configured with gzip compression for faster load times
-- Static assets cached with 1-year expiry headers  
+- Multi-stage build keeps production image size minimal
+- Next.js standalone mode includes only necessary dependencies
+- Built-in Next.js optimizations for caching and compression  

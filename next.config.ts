@@ -3,7 +3,7 @@ import createMDX from '@next/mdx';
 import rehypeHighlight from 'rehype-highlight';
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: 'standalone',
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   eslint: {
     // Disable ESLint during production builds for Docker
