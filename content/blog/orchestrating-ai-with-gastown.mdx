@@ -7,9 +7,9 @@ tags: ["ai", "workflow", "automation", "gastown", "development"]
 
 # Orchestrating AI Agents with Gastown: My Multi-Project Workflow
 
-If you've been following the AI development space, you know that working with AI coding assistants has gone from "cool experiment" to "how did I ever work without this?" But what happens when you have multiple projects, each with their own needs, and you want to coordinate AI agents efficiently across all of them? Enter Gastown.
+If you've been following the AI development space, you know that working with AI coding assistants has gone from "cool experiment" to "how did I ever work without this?" But here's the challenge: **how do you work on multiple projects at once without losing your mind?**
 
-I've been running my development workflow through Gastown, and it's transformed how I think about AI-assisted development. Let me walk you through how it works and why it's made such a difference.
+That's where Gastown comes in. I've been running three active projects through it—my personal site, a trading tracker, and a meal planning app—and I can honestly say it's transformed how I work. The key insight? Stop thinking about one AI conversation at a time. Start thinking about orchestrating multiple AI agents across your entire project portfolio.
 
 ## What is Gastown?
 
@@ -88,15 +88,11 @@ A **convoy** is Gastown's way of managing batches of work. Think of it as a proj
 
 This is where the magic happens: **true parallelization**. Multiple polecats can work on different parts of the feature simultaneously, each with fresh context and focused on their specific task.
 
-### Step 4: Crew Work for Oversight
+### Step 4: Crew Work and Anti-Gravity
 
-For tasks that need my direct oversight or don't fit the polecat model, I handle them in my crew workspace. This might include:
-- Architectural decisions that affect multiple systems
-- Exploratory research where I need to guide the investigation
-- Integration work that requires understanding the full system
-- Code review and quality assurance
+For tasks that need my direct oversight or don't fit the polecat model, I handle them in my crew workspace. This includes architectural decisions, exploratory research, or integration work.
 
-I use what I call **anti-gravity** mode for this—it's my term for tasks that I want to keep in my direct control rather than letting them float off to automated agents.
+For quick edits that fall outside the Gastown orchestration, I also use **Anti-Gravity**—Google's AI assistant powered by Gemini Pro. It gives me another tool for fast iterations when I don't need the full Gastown workflow, creating a nice complement to the structured approach.
 
 ## The CLAUDE.md Secret Sauce
 
@@ -113,32 +109,15 @@ When a polecat spawns in that rig, it automatically gets this context, ensuring 
 
 ## Why This Workflow Works
 
-### True Parallelization
+### Multi-Project Parallelization
 
-Before Gastown, I was limited by having one Claude conversation at a time. Now I can have multiple polecats working on different features simultaneously. It's like going from one developer to a whole team.
+This is the game-changer: **I'm no longer bottlenecked by working on one project at a time**. Before Gastown, switching between projects meant losing context, re-explaining architecture, and constantly context-switching. Now I can have agents making progress across all my projects simultaneously while I focus on the high-level work that actually needs my attention.
 
-### Fresh Context Per Task
+It's not just about speed—it's about maintaining momentum across your entire portfolio without the mental overhead of juggling multiple contexts.
 
-Each polecat starts with fresh context specific to their task. No more "wait, I need to explain the project structure again" or dealing with polluted context from previous tasks.
+### Fresh Context, Every Time
 
-### Clear Separation of Concerns
-
-The distinction between polecats (disposable workers), crew (my workspace), and the Mayor (coordinator) creates natural boundaries. I know exactly where each type of work belongs.
-
-### Multi-Model Flexibility
-
-While I primarily use Claude Sonnet 4.5, Gastown's architecture means I can potentially use different models for different tasks:
-- Quick refactors? Use a faster model
-- Complex architecture? Use the most capable model
-- Bulk documentation? Use a cost-effective model
-
-### Audit Trail
-
-Everything flows through Gastown's event system. I can see:
-- What work was done by which agent
-- When tasks were completed
-- How convoys progressed
-- Communication between agents
+Each agent starts with exactly the context it needs for its specific task. No more polluted conversation history or having to re-explain the project structure for the hundredth time. The `CLAUDE.md` file in each rig ensures consistent quality without repetition.
 
 ## Real-World Example: Adding a Feature
 
@@ -167,59 +146,37 @@ Let me show you how this plays out in practice. Recently, I wanted to add a "Cau
 
 The whole process feels less like babysitting one AI and more like managing a competent team.
 
-## The Fun Factor
+## Why This Changes the Game
 
-I won't lie—there's something deeply satisfying about running `gt trail` and seeing the recent activity of all your agents, or using `gt feed` to watch real-time events stream by as work progresses. It feels like you're running a small AI-powered software shop.
+The real power of Gastown isn't in any single feature—it's in how it lets you **work on multiple projects simultaneously**. Before, I'd context-switch between projects, losing momentum and mental state. Now, I can have:
 
-Commands like:
-```bash
-gt ready              # Show what work is ready across town
-gt convoy list        # See all active convoys
-gt patrol start       # Start automated monitoring
-gt mail inbox         # Check messages from agents
-```
+- A polecat refactoring my meal planner's database schema
+- Another polecat adding features to my trading tracker
+- A third working on this website
+- All while I'm focused on architectural decisions in my crew workspace
 
-These aren't just utilities—they're your window into a living, breathing development ecosystem.
+Each project gets dedicated AI attention without me having to manually juggle conversations or context. It's the difference between being a solo developer and coordinating a distributed team.
 
 ## Getting Started with Gastown
 
-If you're interested in trying this workflow:
+If you're interested in trying this workflow, start at the [Gastown repository](https://github.com/steveyegge/gastown). The key is understanding the concepts—rigs for projects, polecats for disposable workers, crew for your workspace—before diving into the commands.
 
-1. **Install Gastown**: Visit the [Gastown repository](https://github.com/steveyegge/gastown) (check for the latest installation instructions)
-
-2. **Initialize your first rig**:
-   ```bash
-   gt init
-   ```
-
-3. **Create a CLAUDE.md**: Define the skills and context for your project
-
-4. **Start a crew workspace**:
-   ```bash
-   gt crew start
-   ```
-
-5. **Experiment with polecats**:
-   ```bash
-   gt sling "task description" polecat-name
-   ```
+Start with one rig, get comfortable with the workflow, then expand to multiple projects where the real benefits kick in.
 
 ## Is It Worth It?
 
-For me, absolutely. The learning curve is real—you need to understand the concepts and develop your workflow. But once it clicks, it's transformative.
+For me, absolutely. The learning curve is real, but once it clicks, it's transformative.
 
 **It's worth it if you:**
-- Manage multiple projects
-- Want true parallel AI work
+- **Manage multiple projects** (this is the killer feature)
+- Want work happening across your portfolio without constant context-switching
 - Like systematic approaches to development
-- Enjoy optimizing your workflow
-- Have complex, multi-step features to build
+- Have complex, multi-step features that can be parallelized
 
 **Maybe skip it if you:**
-- Have a single, small project
+- Focus on a single project
 - Prefer simpler, direct AI interaction
-- Don't want to learn a new tool ecosystem
-- Are just getting started with AI coding
+- Don't want to learn a new workflow
 
 ## The Future of AI Development
 
@@ -231,4 +188,4 @@ And honestly? It's pretty exciting.
 
 ---
 
-*Want to see Gastown in action? Check out my [GitHub](https://github.com/yourusername) where I'm running this workflow across all my projects. Have questions or tips for optimizing the workflow? Let's chat!*
+*Want to see Gastown in action? Check out my [GitHub](https://github.com/briangriffey) where I'm running this workflow across all my projects. Have questions or tips for optimizing the workflow? Let's chat!*
