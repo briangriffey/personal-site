@@ -1,0 +1,234 @@
+---
+title: "Orchestrating AI Agents with Gastown: My Multi-Project Workflow"
+date: "2026-02-08"
+excerpt: "How I use Gastown to orchestrate multiple AI agents across my projects, from PRD creation to parallel task execution, making AI development feel like managing a well-oiled machine shop."
+tags: ["ai", "workflow", "automation", "gastown", "development"]
+---
+
+# Orchestrating AI Agents with Gastown: My Multi-Project Workflow
+
+If you've been following the AI development space, you know that working with AI coding assistants has gone from "cool experiment" to "how did I ever work without this?" But what happens when you have multiple projects, each with their own needs, and you want to coordinate AI agents efficiently across all of them? Enter Gastown.
+
+I've been running my development workflow through Gastown, and it's transformed how I think about AI-assisted development. Let me walk you through how it works and why it's made such a difference.
+
+## What is Gastown?
+
+Think of Gastown as an orchestration framework for AI agents. It's not just about having Claude help you write code—it's about having an entire **distributed team of AI agents** working across your projects, with clear roles, communication channels, and work distribution.
+
+The name comes from the Old West imagery of a frontier town where different workers have specialized roles. In Gastown, your projects aren't just folders—they're **rigs** (like oil rigs or mining operations), and you have different types of agents working on them.
+
+## The Core Concepts: A Town Full of Workers
+
+### Rigs: Your Project Workspaces
+
+Each of my projects is set up as a **rig** in Gastown. Right now I'm running:
+- **personalsite** - This website you're reading
+- **wheeltracker** - An options trading tracker for the wheel strategy
+- **meal-planner-agent** - An AI-powered meal planning app
+
+Each rig is autonomous but part of the larger Gastown ecosystem. They share a common infrastructure but maintain their own specialized configurations.
+
+### Polecats: The Ephemeral Workers
+
+**Polecats** are your disposable, single-task AI workers. Think of them as contractors who come in, do one specific job, then disappear. You create them with `gt sling`, they tackle a task, and when they're done, they're nuked. No baggage, no context pollution.
+
+This is perfect for isolated features or bug fixes where you want a fresh perspective without worrying about context from previous sessions.
+
+### Crew: Your Persistent Workspace
+
+While polecats are ephemeral, **crew** members are persistent workspaces where I directly interact with AI agents. Inside each rig, I have a crew folder with my own workspace where I use Claude directly for tasks that don't fit the "dispatch and forget" model of polecats.
+
+This is where I do exploratory work, make architectural decisions, or handle tasks that need more back-and-forth iteration.
+
+### The Mayor: Chief of Staff
+
+The **Mayor** is your cross-rig coordinator—a meta-agent that manages work distribution across all your rigs. When you have a task that might touch multiple projects or need coordination, the Mayor is your go-to.
+
+The Mayor maintains the big picture, tracks work across rigs, and helps ensure everything stays in sync.
+
+### Other Key Roles
+
+- **Deacon**: Town-level watchdog that monitors the health of your Gastown installation
+- **Witness**: Per-rig health monitor that keeps an eye on polecat activity
+- **Refinery**: Processes your merge queue, ensuring code gets reviewed and integrated properly
+- **Daemon**: Background service that keeps everything running smoothly
+
+## My Workflow: From PRD to Production
+
+Here's where it gets interesting. I've developed a workflow that leverages Gastown's strengths while keeping me in control of the architecture.
+
+### Step 1: Create a PRD with Claude
+
+When I have a new feature or project idea, I start in my crew workspace and use Claude to create a **Product Requirements Document (PRD)**. But here's the key: I give Claude context about Gastown.
+
+I tell it:
+> "I'm using Gastown for this project. Create a PRD that breaks this work into tasks that can be efficiently distributed to AI agents via convoys. Structure it so work can be slung appropriately to polecats."
+
+This ensures the PRD is written with the right granularity and structure for parallel work.
+
+### Step 2: Dispatch to the Mayor
+
+Once I have a solid PRD, I save it to my `prds/` directory and prompt the Mayor to read it:
+
+```bash
+gt mayor
+# Then in the Mayor session:
+# "Read the PRD at prds/new-feature.md and create a convoy to implement it"
+```
+
+The Mayor breaks down the PRD into discrete work items and creates a **convoy**—a batch of related tasks that can be tracked together.
+
+### Step 3: Convoys and Parallel Execution
+
+A **convoy** is Gastown's way of managing batches of work. Think of it as a project board where tasks flow through different states:
+- Pending work gets slung to polecats
+- Each polecat works independently on their task
+- The convoy tracks overall progress
+- Results merge back through the refinery
+
+This is where the magic happens: **true parallelization**. Multiple polecats can work on different parts of the feature simultaneously, each with fresh context and focused on their specific task.
+
+### Step 4: Crew Work for Oversight
+
+For tasks that need my direct oversight or don't fit the polecat model, I handle them in my crew workspace. This might include:
+- Architectural decisions that affect multiple systems
+- Exploratory research where I need to guide the investigation
+- Integration work that requires understanding the full system
+- Code review and quality assurance
+
+I use what I call **anti-gravity** mode for this—it's my term for tasks that I want to keep in my direct control rather than letting them float off to automated agents.
+
+## The CLAUDE.md Secret Sauce
+
+One of the most powerful features is creating `CLAUDE.md` files for each rig. These files define the **skills and context** that polecats need to do quality work in that specific rig.
+
+For example, my wheeltracker `CLAUDE.md` might include:
+- Project architecture and key patterns
+- Database schema overview
+- Testing requirements
+- Code style guidelines
+- Common gotchas and solutions
+
+When a polecat spawns in that rig, it automatically gets this context, ensuring consistent quality without me having to repeat myself constantly.
+
+## Why This Workflow Works
+
+### True Parallelization
+
+Before Gastown, I was limited by having one Claude conversation at a time. Now I can have multiple polecats working on different features simultaneously. It's like going from one developer to a whole team.
+
+### Fresh Context Per Task
+
+Each polecat starts with fresh context specific to their task. No more "wait, I need to explain the project structure again" or dealing with polluted context from previous tasks.
+
+### Clear Separation of Concerns
+
+The distinction between polecats (disposable workers), crew (my workspace), and the Mayor (coordinator) creates natural boundaries. I know exactly where each type of work belongs.
+
+### Multi-Model Flexibility
+
+While I primarily use Claude Sonnet 4.5, Gastown's architecture means I can potentially use different models for different tasks:
+- Quick refactors? Use a faster model
+- Complex architecture? Use the most capable model
+- Bulk documentation? Use a cost-effective model
+
+### Audit Trail
+
+Everything flows through Gastown's event system. I can see:
+- What work was done by which agent
+- When tasks were completed
+- How convoys progressed
+- Communication between agents
+
+## Real-World Example: Adding a Feature
+
+Let me show you how this plays out in practice. Recently, I wanted to add a "Causes" section to my personal website.
+
+**Traditional approach:**
+1. Open Claude
+2. Explain the whole project structure
+3. Work through the feature step-by-step
+4. Hope I don't hit context limits
+5. Manually track what's done
+
+**Gastown approach:**
+1. Write a PRD with Claude in my crew workspace, mentioning I'm using Gastown
+2. Save the PRD to `prds/causes-section.md`
+3. Prompt the Mayor: "Read prds/causes-section.md and execute"
+4. Mayor creates a convoy with tasks:
+   - Create Causes page component
+   - Add navigation links
+   - Create image directory structure
+   - Add sample cause data
+   - Write tests
+5. Polecats pick up tasks in parallel
+6. I oversee progress and handle integration in my crew workspace
+7. Everything merges cleanly through the refinery
+
+The whole process feels less like babysitting one AI and more like managing a competent team.
+
+## The Fun Factor
+
+I won't lie—there's something deeply satisfying about running `gt trail` and seeing the recent activity of all your agents, or using `gt feed` to watch real-time events stream by as work progresses. It feels like you're running a small AI-powered software shop.
+
+Commands like:
+```bash
+gt ready              # Show what work is ready across town
+gt convoy list        # See all active convoys
+gt patrol start       # Start automated monitoring
+gt mail inbox         # Check messages from agents
+```
+
+These aren't just utilities—they're your window into a living, breathing development ecosystem.
+
+## Getting Started with Gastown
+
+If you're interested in trying this workflow:
+
+1. **Install Gastown**: Visit the [Gastown repository](https://github.com/steveyegge/gastown) (check for the latest installation instructions)
+
+2. **Initialize your first rig**:
+   ```bash
+   gt init
+   ```
+
+3. **Create a CLAUDE.md**: Define the skills and context for your project
+
+4. **Start a crew workspace**:
+   ```bash
+   gt crew start
+   ```
+
+5. **Experiment with polecats**:
+   ```bash
+   gt sling "task description" polecat-name
+   ```
+
+## Is It Worth It?
+
+For me, absolutely. The learning curve is real—you need to understand the concepts and develop your workflow. But once it clicks, it's transformative.
+
+**It's worth it if you:**
+- Manage multiple projects
+- Want true parallel AI work
+- Like systematic approaches to development
+- Enjoy optimizing your workflow
+- Have complex, multi-step features to build
+
+**Maybe skip it if you:**
+- Have a single, small project
+- Prefer simpler, direct AI interaction
+- Don't want to learn a new tool ecosystem
+- Are just getting started with AI coding
+
+## The Future of AI Development
+
+Working with Gastown has given me a glimpse of what AI-assisted development could become. It's not about one AI helping you write code—it's about orchestrating multiple AI agents, each specialized for their task, working in concert under your direction.
+
+You're not a coder anymore. You're a **conductor**.
+
+And honestly? It's pretty exciting.
+
+---
+
+*Want to see Gastown in action? Check out my [GitHub](https://github.com/yourusername) where I'm running this workflow across all my projects. Have questions or tips for optimizing the workflow? Let's chat!*
