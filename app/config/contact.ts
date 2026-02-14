@@ -27,7 +27,7 @@ export const contactConfig: ContactConfig = {
     },
     linkedin: {
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/briangriffey',
+      url: 'https://www.linkedin.com/in/brian-griffey-b8542924/',
       label: 'Connect with me on LinkedIn',
     },
   },

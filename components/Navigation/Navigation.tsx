@@ -68,13 +68,6 @@ export default function Navigation({ className = '' }: NavigationProps) {
             Home
           </Link>
           <Link
-            href="/about"
-            className={`${styles.navLink} ${isActive('/about') ? styles.active : ''}`}
-            aria-current={isActive('/about') ? 'page' : undefined}
-          >
-            About
-          </Link>
-          <Link
             href="/blog"
             className={`${styles.navLink} ${isActive('/blog') ? styles.active : ''}`}
             aria-current={isActive('/blog') ? 'page' : undefined}

@@ -6,11 +6,10 @@
 'use client';
 
 import SocialLink from './SocialLink';
-import { contactConfig, getSocialLinks, getEmailLink } from '../config/contact';
+import { getSocialLinks } from '../config/contact';
 
 export default function ContactSection() {
   const socialLinks = getSocialLinks();
-  const emailLink = getEmailLink();
 
   return (
     <section
@@ -40,31 +39,8 @@ export default function ContactSection() {
             marginBottom: '2rem',
           }}
         >
-          Feel free to reach out via email or connect with me on social media.
+          Connect with me on social media.
         </p>
-      </div>
-
-      {/* Email Section */}
-      <div
-        style={{
-          marginBottom: '2.5rem',
-          textAlign: 'center',
-        }}
-      >
-        <h3
-          style={{
-            fontSize: '1.125rem',
-            marginBottom: '0.75rem',
-          }}
-        >
-          Email
-        </h3>
-        <a
-          href={emailLink}
-          className="link-inline"
-        >
-          {contactConfig.email}
-        </a>
       </div>
 
       {/* Social Links Section */}
