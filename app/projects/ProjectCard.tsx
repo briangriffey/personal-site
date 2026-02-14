@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import type { Project } from '../config/projects';
+import ExpandableSection from '../../components/ExpandableSection/ExpandableSection';
 import styles from './ProjectCard.module.css';
 
 export interface ProjectCardProps {
@@ -93,17 +94,82 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
 
-        {/* Key Features */}
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Key Features</h3>
+        {/* Key Features - Expandable */}
+        <ExpandableSection title="Key Features" defaultExpanded={false}>
           <ul className={styles.featureList}>
-            {project.features.slice(0, 4).map((feature, index) => (
+            {project.features.map((feature, index) => (
               <li key={index} className={styles.featureItem}>
                 {feature}
               </li>
             ))}
           </ul>
-        </div>
+        </ExpandableSection>
+
+        {/* Technical Highlights - Expandable */}
+        <ExpandableSection title="Technical Highlights" defaultExpanded={false}>
+          <div className={styles.techHighlights}>
+            {project.techHighlights.unique && project.techHighlights.unique.length > 0 && (
+              <div className={styles.highlightSection}>
+                <h4 className={styles.highlightTitle}>Architecture & Design</h4>
+                <ul className={styles.highlightList}>
+                  {project.techHighlights.unique.map((item, index) => (
+                    <li key={index} className={styles.highlightItem}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {project.techHighlights.frontend && project.techHighlights.frontend.length > 0 && (
+              <div className={styles.highlightSection}>
+                <h4 className={styles.highlightTitle}>Frontend</h4>
+                <ul className={styles.highlightList}>
+                  {project.techHighlights.frontend.map((item, index) => (
+                    <li key={index} className={styles.highlightItem}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {project.techHighlights.backend && project.techHighlights.backend.length > 0 && (
+              <div className={styles.highlightSection}>
+                <h4 className={styles.highlightTitle}>Backend</h4>
+                <ul className={styles.highlightList}>
+                  {project.techHighlights.backend.map((item, index) => (
+                    <li key={index} className={styles.highlightItem}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {project.techHighlights.testing && project.techHighlights.testing.length > 0 && (
+              <div className={styles.highlightSection}>
+                <h4 className={styles.highlightTitle}>Testing</h4>
+                <ul className={styles.highlightList}>
+                  {project.techHighlights.testing.map((item, index) => (
+                    <li key={index} className={styles.highlightItem}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {project.techHighlights.deployment && project.techHighlights.deployment.length > 0 && (
+              <div className={styles.highlightSection}>
+                <h4 className={styles.highlightTitle}>Deployment</h4>
+                <ul className={styles.highlightList}>
+                  {project.techHighlights.deployment.map((item, index) => (
+                    <li key={index} className={styles.highlightItem}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </ExpandableSection>
 
         {/* Stats */}
         {project.stats && project.stats.length > 0 && (

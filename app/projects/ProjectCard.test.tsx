@@ -86,10 +86,11 @@ describe('ProjectCard', () => {
 
     it('renders tech stack badges', () => {
       render(<ProjectCard project={mockProject} />);
-      expect(screen.getByText('Next.js')).toBeInTheDocument();
-      expect(screen.getByText('React')).toBeInTheDocument();
-      expect(screen.getByText('TypeScript')).toBeInTheDocument();
-      expect(screen.getByText('PostgreSQL')).toBeInTheDocument();
+      // Use getAllByText since tech stack items may appear in multiple places (badges and highlights)
+      expect(screen.getAllByText('Next.js')[0]).toBeInTheDocument();
+      expect(screen.getAllByText('React')[0]).toBeInTheDocument();
+      expect(screen.getAllByText('TypeScript')[0]).toBeInTheDocument();
+      expect(screen.getAllByText('PostgreSQL')[0]).toBeInTheDocument();
     });
 
     it('renders image with correct alt text', () => {
