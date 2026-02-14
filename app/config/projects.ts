@@ -234,7 +234,7 @@ export const projects: Project[] = [
       'BullMQ',
     ],
     links: {
-      demo: 'https://meal-planner-demo.vercel.app',
+      demo: 'https://mealplanner.briangriffey.com',
       github: 'https://github.com/briangriffey/meal-planner-agent',
     },
     stats: [
