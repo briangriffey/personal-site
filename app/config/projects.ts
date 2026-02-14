@@ -43,7 +43,7 @@ export const projects: Project[] = [
     tagline: 'AI agent orchestration framework for parallel multi-project development',
     slug: 'gastown',
     image: {
-      src: '/images/projects/gastown.png',
+      src: '/images/projects/gastown-placeholder.svg',
       alt: 'Gastown AI agent orchestration framework architecture diagram',
     },
     problem:
@@ -73,6 +73,10 @@ export const projects: Project[] = [
       frontend: ['Next.js 15+', 'React 19', 'TypeScript', 'Tailwind CSS'],
       backend: ['Node.js', 'PostgreSQL', 'Prisma ORM'],
       testing: ['Vitest', 'Playwright'],
+      deployment: [
+        'Multiple production rigs: wheeltracker, mealplanner, personalsite',
+        'Mandatory completion protocol with tests, commit, push, quality gates',
+      ],
     },
     techStack: [
       'Custom Framework',
@@ -117,7 +121,7 @@ export const projects: Project[] = [
     tagline: 'Sophisticated options trading tracker for the wheel strategy',
     slug: 'wheel-tracker',
     image: {
-      src: '/images/projects/wheel-tracker.png',
+      src: '/images/projects/wheeltracker-placeholder.svg',
       alt: 'Wheel Tracker options trading dashboard screenshot',
     },
     problem:
@@ -177,7 +181,7 @@ export const projects: Project[] = [
     tagline: 'AI-powered meal planning that saves time and reduces decision fatigue',
     slug: 'meal-planner',
     image: {
-      src: '/images/projects/meal-planner.png',
+      src: '/images/projects/mealplanner-placeholder.svg',
       alt: 'Meal Planner Agent AI-powered meal planning interface',
     },
     problem:
