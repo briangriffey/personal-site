@@ -1,0 +1,430 @@
+/* ============================================
+   PROJECT CARD COMPONENT STYLES
+   ============================================ */
+
+/* Card Container */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--color-primary-300);
+}
+
+.card:active {
+  transform: translateY(-2px);
+}
+
+/* Featured Card - Distinct visual treatment */
+.featured {
+  border-color: var(--color-primary-500);
+  border-width: 2px;
+}
+
+.featured:hover {
+  border-color: var(--color-primary-600);
+}
+
+/* Featured Badge */
+.featuredBadge {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  background-color: var(--color-primary-600);
+  color: var(--color-white);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+}
+
+/* Image Container */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--color-muted);
+}
+
+/* Project Image */
+.image {
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+/* Image Placeholder - shown when image fails to load */
+.imagePlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-muted);
+}
+
+.placeholderIcon {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-muted-foreground);
+  opacity: 0.5;
+}
+
+/* Card Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-6);
+  gap: var(--spacing-4);
+  flex-grow: 1;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+/* Project Title */
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-foreground);
+  transition: color var(--transition-fast);
+}
+
+.card:hover .title {
+  color: var(--color-primary-600);
+}
+
+/* Project Tagline */
+.tagline {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-muted-foreground);
+  font-style: italic;
+}
+
+/* Tech Stack Badges */
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+}
+
+.techBadge {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-2);
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+/* Problem/Solution Section */
+.problemSolution {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-600);
+}
+
+.sectionText {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-muted-foreground);
+}
+
+/* Expandable Sections */
+.expandableSection {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-3);
+}
+
+.expandButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-2) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--color-foreground);
+  transition: color var(--transition-fast);
+}
+
+.expandButton:hover {
+  color: var(--color-primary-600);
+}
+
+.expandButton:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.expandButtonText {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.expandIcon {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  transition: transform var(--transition-fast);
+}
+
+/* Features List */
+.featuresList {
+  margin: var(--spacing-3) 0 0;
+  padding-left: var(--spacing-5);
+  list-style: disc;
+}
+
+.featureItem {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-muted-foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+/* Technical Highlights */
+.techHighlights {
+  margin-top: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.techCategory {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.techCategoryTitle {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-600);
+}
+
+.techList {
+  padding-left: var(--spacing-4);
+  list-style: circle;
+}
+
+.techItem {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-muted-foreground);
+  margin-bottom: var(--spacing-1);
+}
+
+/* Stats/Metrics */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  background-color: var(--color-muted);
+  border-radius: var(--radius-md);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.statLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-600);
+}
+
+.statValue {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-foreground);
+}
+
+/* Call-to-Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  margin-top: auto;
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Mobile - Optimize spacing and text sizes */
+@media (max-width: 639px) {
+  .content {
+    padding: var(--spacing-5);
+    gap: var(--spacing-3);
+  }
+
+  .title {
+    font-size: var(--font-size-lg);
+  }
+
+  .tagline {
+    font-size: var(--font-size-xs);
+  }
+
+  .sectionText {
+    font-size: var(--font-size-xs);
+  }
+
+  .featureItem {
+    font-size: var(--font-size-xs);
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet and up - Increase spacing */
+@media (min-width: 640px) {
+  .content {
+    padding: var(--spacing-6);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Desktop - Further optimize for larger screens */
+@media (min-width: 1024px) {
+  .content {
+    padding: var(--spacing-6);
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .tagline {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:active {
+    transform: none;
+  }
+
+  .image {
+    transition: none;
+  }
+
+  .card:hover .image {
+    transform: none;
+  }
+
+  .expandIcon {
+    transition: none;
+  }
+}
+
+/* Print styles - Remove hover effects and optimize spacing */
+@media print {
+  .card {
+    box-shadow: none;
+    border: 1px solid var(--color-neutral-300);
+    page-break-inside: avoid;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .card:hover .image {
+    transform: none;
+  }
+
+  .featuredBadge {
+    background-color: transparent;
+    color: var(--color-foreground);
+    border: 1px solid var(--color-foreground);
+  }
+
+  .expandButton {
+    display: none;
+  }
+
+  .featuresList,
+  .techHighlights {
+    display: block;
+  }
+
+  .actions {
+    display: none;
+  }
+}
