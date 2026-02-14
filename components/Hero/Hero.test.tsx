@@ -13,19 +13,19 @@ describe('Hero Component', () => {
 
     it('renders the professional role/title', () => {
       render(<Hero />);
-      const role = screen.getByText(/full-stack software engineer/i);
+      const role = screen.getByText(/living with intention, creating with purpose, learning continuously/i);
       expect(role).toBeInTheDocument();
     });
 
     it('renders the tagline/value proposition', () => {
       render(<Hero />);
-      const tagline = screen.getByText(/building exceptional web experiences with modern technologies/i);
+      const tagline = screen.getByText(/finding zen through creation/i);
       expect(tagline).toBeInTheDocument();
     });
 
     it('renders the full tagline text', () => {
       render(<Hero />);
-      const tagline = screen.getByText(/passionate about creating clean, scalable solutions that make a difference/i);
+      const tagline = screen.getByText(/building thoughtfully, learning openly, staying present/i);
       expect(tagline).toBeInTheDocument();
     });
   });

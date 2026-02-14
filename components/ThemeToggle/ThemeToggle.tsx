@@ -37,7 +37,12 @@ export default function ThemeToggle({ className = '' }: ThemeToggleProps) {
       dark: 'system',
       system: 'light',
     };
-    setTheme(nextTheme[theme]);
+    try {
+      setTheme(nextTheme[theme]);
+    } catch (error) {
+      console.error('Failed to set theme:', error);
+      // Don't re-throw - handle gracefully
+    }
   };
 
   /**
@@ -78,8 +83,8 @@ export default function ThemeToggle({ className = '' }: ThemeToggleProps) {
       className={`${styles.themeToggle} ${className}`}
       onClick={cycleTheme}
       onKeyDown={handleKeyDown}
-    // aria-label={`Current theme: ${getThemeLabel()}. Click to switch to ${getNextThemeLabel()} mode`}
-    // title={`Switch to ${getNextThemeLabel()} mode`}
+      aria-label={`Current theme: ${getThemeLabel()}. Click to switch to ${getNextThemeLabel()} mode`}
+      title={`Switch to ${getNextThemeLabel()} mode`}
     >
       <span className={styles.iconWrapper} aria-hidden="true">
         {/* Sun Icon - Light Mode */}

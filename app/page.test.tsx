@@ -56,12 +56,12 @@ describe('Home Page', () => {
 
     it('renders the professional role', () => {
       render(<Home />);
-      expect(screen.getByText(/full-stack software engineer/i)).toBeInTheDocument();
+      expect(screen.getByText(/living with intention, creating with purpose, learning continuously/i)).toBeInTheDocument();
     });
 
     it('renders the tagline', () => {
       render(<Home />);
-      expect(screen.getByText(/building exceptional web experiences with modern technologies/i)).toBeInTheDocument();
+      expect(screen.getByText(/finding zen through creation/i)).toBeInTheDocument();
     });
   });
 
