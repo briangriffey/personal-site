@@ -204,12 +204,11 @@
 .sectionTitle {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-accent);
+  color: var(--color-accent-700);
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  /* Accessibility: Accent color (#0B758C) on light background (#F2EBDC)
-     provides 5.2:1 contrast ratio, meeting WCAG AA (4.5:1 requirement) */
+  /* Accessibility: Darker accent shade for improved contrast */
 }
 
 .sectionText {
@@ -350,13 +349,6 @@
 /* Focus state for card to ensure keyboard navigation visibility */
 .card:focus-within {
   box-shadow: var(--shadow-lg), 0 0 0 3px var(--color-accent);
-}
-
-/* Ensure links have visible focus indicators */
-a:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 /* ============================================

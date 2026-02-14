@@ -14,6 +14,14 @@ const nextConfig: NextConfig = {
     // Disable type checking during builds (should be done in CI/CD)
     ignoreBuildErrors: true,
   },
+  compiler: {
+    // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Optimize for modern browsers only
+  experimental: {
+    optimizePackageImports: ['react', 'react-dom'],
+  },
 };
 
 const withMDX = createMDX({

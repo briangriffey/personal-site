@@ -43,9 +43,12 @@
     "eslint-config-next": "^15.1.0",
     "eslint-config-prettier": "^9.1.0",
     "jsdom": "^25.0.1",
-    "prettier": "^3.4.2", 
+    "prettier": "^3.4.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8",
     "@types/mdx": "^2.0.13"
-  }
+  },
+  "browserslist": [
+    "defaults and fully supports es6-module"
+  ]
 }
