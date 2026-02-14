@@ -24,6 +24,13 @@
   transform: translateY(-2px);
 }
 
+/* Keyboard navigation - show focus when any child element has focus */
+.card:focus-within {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-lg);
+}
+
 /* Image Container */
 .imageContainer {
   position: relative;

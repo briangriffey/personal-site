@@ -35,8 +35,9 @@
 }
 
 .cardLink:focus-visible {
-  outline: 2px solid var(--color-primary-500);
-  outline-offset: 2px;
+  outline: 3px solid var(--color-primary-500);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
 /* Post Title */
@@ -199,12 +200,6 @@
   }
 }
 
-/* Ensure proper contrast for keyboard focus */
-.cardLink:focus-visible {
-  outline: 2px solid var(--color-primary-500);
-  outline-offset: 4px;
-  border-radius: var(--radius-lg);
-}
 
 /* Print styles - Remove hover effects and optimize spacing */
 @media print {
