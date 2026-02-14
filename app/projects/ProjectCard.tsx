@@ -125,7 +125,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.button} ${styles.buttonPrimary}`}
-              aria-label={`View live demo of ${project.title}`}
+              aria-label={`View live demo of ${project.title} (opens in new tab)`}
             >
               View Live Demo
             </a>
@@ -145,7 +145,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.button} ${styles.buttonSecondary}`}
-              aria-label={`View source code for ${project.title} on GitHub`}
+              aria-label={`View source code for ${project.title} on GitHub (opens in new tab)`}
             >
               View Source
             </a>
