@@ -1,0 +1,6 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#1e293b"/>
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="32" fill="#94a3b8" text-anchor="middle">Precept Tracker</text>
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="18" fill="#64748b" text-anchor="middle">Daily Zen Journal</text>
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="14" fill="#475569" text-anchor="middle">800 x 450</text>
+</svg>

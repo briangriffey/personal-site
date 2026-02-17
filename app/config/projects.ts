@@ -256,6 +256,60 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: 'precept-tracker',
+    title: 'Precept Tracker',
+    tagline: 'Daily Zen journal for reflecting on the 16 Precepts of Soto Zen Buddhism',
+    slug: 'precept-tracker',
+    image: {
+      src: '/images/projects/precepttracker-placeholder.svg',
+      alt: 'Precept Tracker daily Zen journal application',
+    },
+    problem:
+      'Practicing the 16 Precepts of Soto Zen Buddhism requires consistent daily reflection, but there are no dedicated tools to support this discipline. Practitioners rely on generic journaling apps or pen-and-paper methods that don\'t understand the structure of the precepts—the Three Refuges, Three Pure Precepts, and Ten Grave Precepts—making it difficult to track progress, maintain streaks, and observe patterns in their practice over time.',
+    solution:
+      'Precept Tracker is a desktop application purpose-built for daily Zen practice. It guides users through structured reflection on all 16 precepts with customizable prompts, tracks practice streaks and meditation sessions, and provides weekly analytics to reveal trends in your practice. All data stays local on your machine via SQLite.',
+    features: [
+      'Guided Daily Reflection: Structured prompts for all 16 precepts organized into Three Refuges, Three Pure Precepts, and Ten Grave Precepts',
+      'Practice Streak Tracking: Monitor daily practice consistency with streak counters and history',
+      'Meditation Tracking: Separate tracking for meditation sessions alongside precept reflection',
+      'Weekly Analytics: Charts and trend visualization to observe patterns in your practice over time',
+      'Customizable Prompts: Personalize reflection prompts for each precept to match your practice',
+      'Data Export: Export your journal data for backup or external analysis',
+      'Weekly Nudges: Configurable reminders to support consistent practice',
+    ],
+    techHighlights: {
+      frontend: ['React 19', 'TypeScript', 'Framer Motion', 'Recharts'],
+      backend: ['Electron 40', 'Better SQLite3', 'Node.js'],
+      deployment: [
+        'Cross-platform desktop: macOS (DMG), Windows (Squirrel), Linux (DEB/RPM)',
+        'Local-first architecture with SQLite database',
+      ],
+      unique: [
+        'Electron Forge for packaging and distribution',
+        'All data stored locally—no cloud dependency',
+        'Zen-inspired UI with enso iconography',
+      ],
+    },
+    techStack: ['Electron', 'React', 'TypeScript', 'SQLite', 'Framer Motion', 'Vite'],
+    links: {
+      github: 'https://github.com/briangriffey/precept-tracker',
+    },
+    stats: [
+      {
+        label: 'Desktop App',
+        value: 'Cross-platform via Electron (macOS, Windows, Linux)',
+      },
+      {
+        label: 'Local-First',
+        value: 'All data stored locally with SQLite—your practice stays private',
+      },
+      {
+        label: '16 Precepts',
+        value: 'Complete coverage of Soto Zen Buddhist precepts',
+      },
+    ],
+  },
 ] as const;
 
 // Helper function to get a project by slug
