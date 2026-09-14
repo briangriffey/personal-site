@@ -1,32 +1,6 @@
-# Build stage
-FROM node:20-alpine AS builder
-WORKDIR /app
-
-# Install dependencies
-COPY package*.json ./
-RUN npm ci
-
-# Set environment variables
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
-
-# Build application
-COPY . .
-RUN npm run build
-
-# Production stage
-FROM node:20-alpine
-WORKDIR /app
-
-# Copy standalone build
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/public ./public
-
-# The host sets PORT and HOSTNAME at runtime
-EXPOSE 3000
-
-# Start Next.js server
-CMD ["node", "server.js"]
+# The site is one self-contained HTML file. There is nothing to build, so there is no
+# build stage -- just a static file server.
+FROM docker.io/nginxinc/nginx-unprivileged:alpine
+COPY index.html /usr/share/nginx/html/index.html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 8080
