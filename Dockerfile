@@ -25,7 +25,7 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
-# Expose port (Railway will set PORT env var)
+# The host sets PORT and HOSTNAME at runtime
 EXPOSE 3000
 
 # Start Next.js server

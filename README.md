@@ -3,7 +3,7 @@
 ## Technology
 It's completely written and maintained by Claude Code. It's a playground for me to try new multi-agent strategies and build tools.
 
-This web site is built on NextJS 15 and deployed to Railway using standalone mode for optimized production deployment.
+This web site is built on NextJS 15 in standalone mode, and is self-hosted on `server1` as a rootless Podman container behind a Cloudflare Tunnel.
 
 ## Development
 
@@ -24,7 +24,7 @@ The standalone build will be generated in the `.next/standalone/` directory.
 
 ## Docker Deployment
 
-This project uses Docker for production deployment to Railway with a multi-stage build:
+Production uses a multi-stage build:
 - **Build stage**: Node.js 20 Alpine for compiling Next.js
 - **Runtime stage**: Node.js 20 Alpine running Next.js standalone server
 
@@ -46,23 +46,31 @@ docker run -p 3000:3000 personalsite
 - `.dockerignore` - Excludes unnecessary files from build context
 
 
-## Railway Deployment
+## Deployment
 
-Railway automatically detects and builds from the `Dockerfile`. The build process:
-1. Installs dependencies with `npm ci`
-2. Builds Next.js application with `npm run build` in standalone mode
-3. Copies standalone build to production image
-4. Serves with Next.js server on port 3000 (Railway maps to public URL)
+Self-hosted on `server1`, managed from the `wintermute` repo. That repo holds the
+deployment manifest; this one stays the source of truth for the site itself.
+
+```bash
+bin/wm deploy personal-site     # run from the wintermute repo
+```
+
+It checks this repository out, builds with the `Dockerfile` here, tags the image with
+this repo's commit sha, restarts the container, health-checks `/api/health`, and rolls
+back automatically if that check fails.
+
+To ship a change: push to `main` here, then run the deploy.
+
+### Runtime
+- The container listens on `$PORT` (3000) and binds `$HOSTNAME` (0.0.0.0). Both are
+  set by the deployment manifest — the `ENV` lines in this Dockerfile's builder stage
+  are **not** inherited by the runtime stage, and a Next standalone server that
+  defaults to binding localhost is unreachable from outside its own container.
+- It binds `127.0.0.1` on the host. A Cloudflare Tunnel is the only ingress; no
+  inbound port is open.
 
 ### Environment Variables
-Currently no environment variables are required. For future additions, update:
-- `next.config.ts` for build-time variables
-- `railway.json` for deployment configuration
-
-### Port Configuration
-- Container exposes port 3000 (Next.js default)
-- Railway automatically maps to public HTTPS endpoint
-- Local testing: `docker run -p 3000:3000 <image>`
+None required. Add them to the deployment manifest's `env` table, not to an image.
 
 ## Build Optimizations
 - ESLint and TypeScript checking disabled during Docker builds (run in CI/CD instead)
